@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">트립 J</string>
+
+    <string name="select_title">김포텐님!\n어디로 여행 갈 예정인가요?</string>
+    <string name="select_sub_title">국가를 선택하시면 좋은 정보를 추천해줄게요!</string>
+
+    <string name="select_continent_asia">아시아</string>
+    <string name="select_continent_europe">유럽</string>
+    <string name="select_continent_america">아메리카</string>
+
+    <!-- asia -->
+    <string name="select_country_japan">일본</string>
+    <string name="select_country_chinese">중국</string>
+    <string name="select_country_thailand">태국</string>
+    <string name="select_country_hongkong">홍콩</string>
+
+    <!-- europe -->
+    <string name="select_country_england">영국</string>
+    <string name="select_country_france">프랑스</string>
+    <string name="select_country_italy">이탈리아</string>
+
+    <!-- america -->
+    <string name="select_country_usa">미국</string>
+    <string name="select_country_canada">캐나다</string>
+    <string name="select_country_argentina">아르헨티나</string>
+
+    <string name="select_button_bottom">선택 완료</string>
+</resources>
