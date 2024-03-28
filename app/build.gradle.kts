@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -58,4 +59,8 @@ dependencies {
     // rxjava3
     implementation ("io.reactivex.rxjava3:rxjava:3.0.0")
     implementation ("io.reactivex.rxjava3:rxandroid:3.0.0")
+
+    // jetpack navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 }

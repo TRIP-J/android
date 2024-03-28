@@ -2,6 +2,7 @@ package com.poten.android.tripj.presentation.ui.select
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.poten.android.tripj.databinding.FragmentUserInputBinding
 import com.poten.android.tripj.util.BaseFragment
 
@@ -16,5 +17,11 @@ class UserInputFragment
         TODO : 모두 입력 받으면 선택 완료를 눌러 서버에 데이터 전송 (POST)
          */
 
+
+
+    }
+
+    companion object {
+        fun newInstance()=UserInputFragment()
     }
 }

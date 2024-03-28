@@ -26,5 +26,18 @@
     <string name="select_country_canada">캐나다</string>
     <string name="select_country_argentina">아르헨티나</string>
 
-    <string name="select_button_bottom">다음</string>
+    <string name="select_button_next">다음</string>
+
+
+    <string name="user_input_title">김포텐님!\n여행을 준비중이신가요?</string>
+    <string name="user_input_subtitle">여행을 계획적으로 준비할 수 있게 도와줄게요</string>
+
+    <string name="user_input_travel_name">여행 이름</string>
+    <string name="user_input_travel_name_hint">여행 이름을 작성해주세요.</string>
+    <string name="user_input_travel_duration">여행 기간</string>
+    <string name="user_input_travel_duration_hint">여행 일정을 선택해주세요.</string>
+    <string name="user_input_travel_purpose">여행 목적</string>
+    <string name="user_input_travel_purpose_hint">여행 목적을 선택해주세요.</string>
+
+    <string name="user_input_button_select_all">선택 완료</string>
 </resources>
