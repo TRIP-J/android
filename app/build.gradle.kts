@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -36,7 +38,11 @@ android {
     }
 
     buildFeatures {
-        viewBinding=true
+        viewBinding = true
+    }
+
+    kapt {
+        correctErrorTypes = true
     }
 }
 
@@ -57,10 +63,15 @@ dependencies {
     implementation("io.github.reactivecircus.flowbinding:flowbinding-android:1.2.0")
 
     // rxjava3
-    implementation ("io.reactivex.rxjava3:rxjava:3.0.0")
-    implementation ("io.reactivex.rxjava3:rxandroid:3.0.0")
+    implementation("io.reactivex.rxjava3:rxjava:3.0.0")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
 
     // jetpack navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    kapt("com.google.dagger:hilt-compiler:2.48.1")
 }

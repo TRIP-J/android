@@ -10,9 +10,10 @@ import androidx.navigation.fragment.findNavController
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.ActivitySelectBinding
 import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class SelectActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySelectBinding
@@ -37,6 +38,4 @@ class SelectActivity : AppCompatActivity() {
         TODO : 뒤로 가기 처리 고려 하기
          */
     }
-
-
 }
