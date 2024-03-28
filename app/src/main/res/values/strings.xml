@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">트립 J</string>
 
-    <string name="login_introduce">당신의 여행을 도와줄 J친구</string>
+    <string name="login_introduce">당신의 여행을 도와줄 MBTI J친구</string>
 
     <string name="select_title">김포텐님!\n어디로 여행 갈 예정인가요?</string>
     <string name="select_sub_title">국가를 선택하시면 좋은 정보를 추천해줄게요!</string>

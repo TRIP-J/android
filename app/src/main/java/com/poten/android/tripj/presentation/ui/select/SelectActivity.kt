@@ -16,13 +16,14 @@ import kotlinx.coroutines.launch
 class SelectActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySelectBinding
-    private var fragmentList = listOf<Fragment>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySelectBinding.inflate(layoutInflater).also {
             setContentView(it.root)
         }
+        setSupportActionBar(binding.toolBar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
