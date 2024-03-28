@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarLayout"
+        android:layout_width="@dimen/dp_0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        android:layout_height="48dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/titleTextView"
+        android:layout_width="260dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_96"
+        android:lineSpacingExtra="4dp"
+        android:translationY="-1.88sp"
+        android:gravity="top"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="@string/select_title"
+        android:textColor="#171818"
+        android:textSize="@dimen/sp_24"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/subTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="@dimen/dp_4"
+        android:fontFamily="@font/pretendard_regular"
+        android:gravity="top"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/select_sub_title"
+        android:textColor="#979797"
+        android:textSize="16sp"
+        android:translationY="-2.45sp"
+        app:layout_constraintStart_toStartOf="@id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/asiaTextView"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/select_continent_asia"
+        style="@style/ContinentText"
+        app:layout_constraintStart_toStartOf="@id/subTitleTextView"
+        app:layout_constraintTop_toBottomOf="@id/subTitleTextView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/japanButton"
+        style="@style/CountryButton"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="@string/select_country_japan"
+        app:layout_constraintEnd_toStartOf="@id/chineseButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@id/asiaTextView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/chineseButton"
+        style="@style/CountryButton"
+        android:text="@string/select_country_chinese"
+        app:layout_constraintBottom_toBottomOf="@id/japanButton"
+        app:layout_constraintEnd_toStartOf="@id/thailandButton"
+        app:layout_constraintStart_toEndOf="@id/japanButton"
+        app:layout_constraintTop_toTopOf="@id/japanButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/thailandButton"
+        style="@style/CountryButton"
+        android:text="@string/select_country_thailand"
+        app:layout_constraintBottom_toBottomOf="@id/japanButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/dp_20"
+        app:layout_constraintStart_toEndOf="@id/chineseButton"
+        app:layout_constraintTop_toTopOf="@id/japanButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/hongkongButton"
+        app:layout_constraintTop_toBottomOf="@id/japanButton"
+        app:layout_constraintStart_toStartOf="@id/japanButton"
+        app:layout_constraintEnd_toEndOf="@id/japanButton"
+        style="@style/CountryButton"
+        android:text="@string/select_country_hongkong"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/europeTextView"
+        app:layout_constraintTop_toBottomOf="@id/hongkongButton"
+        android:layout_marginTop="@dimen/dp_32"
+        android:text="@string/select_continent_europe"
+        app:layout_constraintStart_toStartOf="@id/titleTextView"
+        style="@style/ContinentText"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/englandButton"
+        style="@style/CountryButton"
+        app:layout_constraintTop_toBottomOf="@id/europeTextView"
+        app:layout_constraintStart_toStartOf="@id/titleTextView"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@id/franceButton"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="@string/select_country_england"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/franceButton"
+        style="@style/CountryButton"
+        app:layout_constraintTop_toTopOf="@id/englandButton"
+        app:layout_constraintBottom_toBottomOf="@id/englandButton"
+        app:layout_constraintStart_toEndOf="@id/englandButton"
+        app:layout_constraintEnd_toStartOf="@id/italyButton"
+        android:text="@string/select_country_france"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/italyButton"
+        style="@style/CountryButton"
+        app:layout_constraintStart_toEndOf="@id/franceButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/englandButton"
+        app:layout_constraintBottom_toBottomOf="@id/englandButton"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:text="@string/select_country_italy"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/americaTextView"
+        style="@style/ContinentText"
+        android:text="@string/select_continent_america"
+        app:layout_constraintStart_toStartOf="@id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@id/englandButton"
+        android:layout_marginTop="@dimen/dp_32"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/usaButton"
+        style="@style/CountryButton"
+        android:text="@string/select_country_usa"
+        app:layout_constraintStart_toStartOf="@id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@id/americaTextView"
+        app:layout_constraintEnd_toStartOf="@id/canadaButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginTop="@dimen/dp_12"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/canadaButton"
+        style="@style/CountryButton"
+        android:text="@string/select_country_canada"
+        app:layout_constraintTop_toTopOf="@id/usaButton"
+        app:layout_constraintEnd_toStartOf="@id/argentinaButton"
+        app:layout_constraintBottom_toBottomOf="@id/usaButton"
+        app:layout_constraintStart_toEndOf="@id/usaButton"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/argentinaButton"
+        style="@style/CountryButton"
+        android:text="@string/select_country_argentina"
+        app:layout_constraintStart_toEndOf="@id/canadaButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/usaButton"
+        app:layout_constraintBottom_toBottomOf="@id/usaButton"
+        android:layout_marginEnd="@dimen/dp_20"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/chooseFinishButton"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="56dp"
+        android:clipToOutline="true"
+        android:fontFamily="@font/pretendard_semibold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/button_filled"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:paddingBottom="@dimen/dp_12"
+        android:paddingTop="@dimen/dp_12"
+        android:text="@string/select_button_bottom"
+        android:textColor="@color/button_text_color_white"
+        android:layout_marginBottom="@dimen/dp_8"
+        tools:targetApi="s" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,53 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".presentation.ui.LoginActivity">
+    tools:context=".presentation.ui.login.LoginActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logoImageView"
         android:layout_width="135.86dp"
         android:layout_height="52dp"
-        android:src="@drawable/main_logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="201dp"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:src="@drawable/main_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/introduceTextView"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
-        android:text="@string/login_introduce"
-        android:fontFamily="@font/pretendard_semibold"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/dp_16"
-        android:lineSpacingExtra="3sp"
-        android:translationY="-1.41sp"
+        android:fontFamily="@font/pretendard_semibold"
         android:gravity="top"
-        android:textColor="@color/gray_scale_700"/>
-
-
+        android:lineSpacingExtra="3sp"
+        android:text="@string/login_introduce"
+        android:textColor="@color/gray_scale_700"
+        android:translationY="-1.41sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoImageView" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/kakaoLoginImageView"
         android:layout_width="335dp"
         android:layout_height="@dimen/dp_56"
-        app:layout_constraintStart_toStartOf="@id/logoImageView"
-        app:layout_constraintEnd_toEndOf="@id/logoImageView"
-        app:layout_constraintTop_toBottomOf="@id/introduceTextView"
         android:layout_marginTop="279dp"
-        android:src="@drawable/kakao_login"/>
+        android:src="@drawable/kakao_login"
+        app:layout_constraintEnd_toEndOf="@id/logoImageView"
+        app:layout_constraintStart_toStartOf="@id/logoImageView"
+        app:layout_constraintTop_toBottomOf="@id/introduceTextView" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/naverLoginImageView"
         android:layout_width="335dp"
         android:layout_height="@dimen/dp_56"
-        app:layout_constraintTop_toBottomOf="@id/kakaoLoginImageView"
-        app:layout_constraintStart_toStartOf="@id/logoImageView"
-        app:layout_constraintEnd_toEndOf="@id/logoImageView"
+        android:layout_marginTop="@dimen/dp_16"
         android:src="@drawable/naver_login"
-        android:layout_marginTop="@dimen/dp_16"/>
+        app:layout_constraintEnd_toEndOf="@id/logoImageView"
+        app:layout_constraintStart_toStartOf="@id/logoImageView"
+        app:layout_constraintTop_toBottomOf="@id/kakaoLoginImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

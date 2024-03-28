@@ -51,4 +51,11 @@ dependencies {
 
     // splash screen
     implementation("androidx.core:core-splashscreen:1.0.1")
+
+    // flowBinding
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-android:1.2.0")
+
+    // rxjava3
+    implementation ("io.reactivex.rxjava3:rxjava:3.0.0")
+    implementation ("io.reactivex.rxjava3:rxandroid:3.0.0")
 }
