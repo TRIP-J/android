@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -13,11 +14,13 @@ import com.poten.android.tripj.databinding.FragmentUserInputBinding
 import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
 import com.poten.android.tripj.util.BaseFragment
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserInputFragment
     : BaseFragment<FragmentUserInputBinding>(FragmentUserInputBinding::inflate) {
 
-    private val viewModel: SelectViewModel by viewModels()
+    private val viewModel: SelectViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

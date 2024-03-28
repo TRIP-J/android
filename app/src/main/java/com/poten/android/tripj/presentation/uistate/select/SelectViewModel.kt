@@ -2,10 +2,15 @@ package com.poten.android.tripj.presentation.uistate.select
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import javax.inject.Inject
 
-class SelectViewModel : ViewModel() {
+@HiltViewModel
+class SelectViewModel @Inject constructor(
+
+) : ViewModel() {
 
     private val _selectStep= MutableStateFlow<Int>(0)
     val selectStep=_selectStep.asStateFlow()

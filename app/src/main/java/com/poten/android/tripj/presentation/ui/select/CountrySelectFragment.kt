@@ -1,37 +1,36 @@
 package com.poten.android.tripj.presentation.ui.select
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
-import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentCountrySelectBinding
 import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
 import com.poten.android.tripj.util.BaseFragment
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class CountrySelectFragment
     : BaseFragment<FragmentCountrySelectBinding>(FragmentCountrySelectBinding::inflate) {
 
-    private val viewModel: SelectViewModel by viewModels()
+    private val viewModel: SelectViewModel by activityViewModels()
+
     private var buttonMap = mapOf<Int, Button>()
     private var focusedButton: Button? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // UI 상에 있는 버튼 추가
         addButtons()
+        // 버튼 1개만 선택되도록 하는 로직
         changeCheckedButton()
+
         with(binding) {
             nextButton.setOnAvoidDuplicateClick {
                 val navController = findNavController()
@@ -41,29 +40,6 @@ class CountrySelectFragment
             }
         }
     }
-
-    private fun setCountry() {
-        viewModel.updateCountry(focusedButton?.text.toString())
-    }
-
-    private fun setContinent() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            var continentText=""
-            when(focusedButton?.text) {
-                "일본","중국","태국","홍콩" -> {
-                   continentText=binding.asiaTextView.text.toString()
-                }
-                "영국","프랑스","이탈리아" -> {
-                    continentText=binding.europeTextView.text.toString()
-                }
-                "미국","캐나다","아르헨티나" -> {
-                    continentText=binding.americaTextView.text.toString()
-                }
-            }
-            viewModel.updateContinent(continentText)
-        }
-    }
-
 
     private fun addButtons() {
         buttonMap = mapOf(
@@ -87,31 +63,56 @@ class CountrySelectFragment
                 focusedButton?.apply {
                     setBackgroundResource(R.drawable.background_country_button_selected)
                     setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_scale_900))
-
                 }
 
                 button.apply {
                     setBackgroundResource(R.drawable.background_country_button_not_selected)
                     setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_scale_100))
                 }
+
+                // focus 변경
                 focusedButton = button
 
-                setContinent()
                 setCountry()
-
-                binding.nextButton.apply {
-                    setBackgroundColor(
-                        ContextCompat.getColor(
-                            requireContext(),
-                            R.color.sky_blue_500
-                        )
-                    )
-                    isEnabled = true
-                }
+                setContinent()
+                setNextButton()
             }
         }
     }
 
+    private fun setCountry() {
+        viewModel.updateCountry(focusedButton?.text.toString())
+    }
+
+    private fun setContinent() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            var continentText = ""
+            when (focusedButton?.text) {
+                "일본", "중국", "태국", "홍콩" -> {
+                    continentText = binding.asiaTextView.text.toString()
+                }
+
+                "영국", "프랑스", "이탈리아" -> {
+                    continentText = binding.europeTextView.text.toString()
+                }
+
+                "미국", "캐나다", "아르헨티나" -> {
+                    continentText = binding.americaTextView.text.toString()
+                }
+            }
+            viewModel.updateContinent(continentText)
+        }
+    }
+
+    private fun setNextButton() {
+        binding.nextButton.apply {
+            setBackgroundColor(
+                ContextCompat
+                    .getColor(requireContext(), R.color.sky_blue_500)
+            )
+            isEnabled = true
+        }
+    }
 
     companion object {
         fun newInstance() = CountrySelectFragment()
