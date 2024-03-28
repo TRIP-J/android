@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">트립 J</string>
 
+    <string name="login_introduce">당신의 여행을 도와줄 J친구</string>
+
     <string name="select_title">김포텐님!\n어디로 여행 갈 예정인가요?</string>
     <string name="select_sub_title">국가를 선택하시면 좋은 정보를 추천해줄게요!</string>
 
@@ -24,5 +26,5 @@
     <string name="select_country_canada">캐나다</string>
     <string name="select_country_argentina">아르헨티나</string>
 
-    <string name="select_button_bottom">선택 완료</string>
+    <string name="select_button_bottom">다음</string>
 </resources>

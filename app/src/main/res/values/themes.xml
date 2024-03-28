@@ -3,14 +3,15 @@
     <style name="Base.Theme.TripJ" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/sky_blue_500</item>
     </style>
 
     <style name="Theme.TripJ" parent="Base.Theme.TripJ" />
 
     <style name="Theme.AppCompat.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">#EEEEEE</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_background</item>
-        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="windowSplashScreenBackground">@color/sky_blue_500</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/splash_icon</item>
+        <item name="windowSplashScreenAnimationDuration">2000</item>
         <item name="postSplashScreenTheme">@style/Base.Theme.TripJ</item>
     </style>
 
