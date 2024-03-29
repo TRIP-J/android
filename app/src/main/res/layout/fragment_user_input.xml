@@ -51,33 +51,29 @@
             app:layout_constraintStart_toStartOf="@id/subTitleTextView"
             app:layout_constraintTop_toBottomOf="@id/subTitleTextView"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/travelNameTextInputLayout"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/travelNameEditText"
             android:layout_width="@dimen/dp_0"
             android:layout_height="48dp"
+            android:drawableStart="@drawable/travel_textinput_drawable_start"
             app:layout_constraintStart_toStartOf="@id/titleTextView"
             app:layout_constraintTop_toBottomOf="@id/travelNameTitleTextView"
             android:layout_marginTop="@dimen/dp_12"
+            android:drawablePadding="@dimen/dp_12"
             android:layout_marginEnd="@dimen/dp_20"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_12"
+            android:paddingBottom="@dimen/dp_12"
             app:boxBackgroundMode="none"
-            android:background="@color/gray_scale_400"
+            android:fontFamily="@font/pretendard_medium"
+            android:textColorHint="@color/gray_scale_400"
+            android:textSize="@dimen/sp_16"
+            android:hint="@string/user_input_travel_name_hint"
+            android:background="@color/gray_scale_50"
             app:layout_constraintEnd_toEndOf="parent"
-            android:clipToOutline="true">
+            android:clipToOutline="true"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:layout_marginTop="@dimen/dp_12"
-                android:drawablePadding="@dimen/dp_12"
-                android:lineSpacingExtra="5sp"
-                android:textSize="@dimen/sp_16"
-                android:fontFamily="@font/pretendard_medium"
-                android:drawableStart="@drawable/travel_textinput_drawable_start"
-                android:hint="@string/user_input_travel_name_hint"
-                android:textColorHint="@color/gray_scale_400"/>
-
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/travelDurationTitleTextView"
@@ -88,33 +84,28 @@
             android:text="@string/user_input_travel_duration"
             android:translationY="-1.41sp"
             app:layout_constraintStart_toStartOf="@id/titleTextView"
-            app:layout_constraintTop_toBottomOf="@id/travelNameTextInputLayout" />
+            app:layout_constraintTop_toBottomOf="@id/travelNameEditText" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/travelDurationLayout"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/travelDurationTextView"
             android:layout_width="@dimen/dp_0"
             android:layout_height="48dp"
             app:layout_constraintStart_toStartOf="@id/titleTextView"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="@dimen/dp_20"
+            android:drawableStart="@drawable/travel_duration_image"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_12"
+            android:text="@string/user_input_travel_duration_hint"
+            android:textSize="@dimen/sp_16"
+            android:fontFamily="@font/pretendard_medium"
+            android:drawablePadding="@dimen/dp_12"
+            android:textColor="@color/gray_scale_400"
             app:layout_constraintTop_toBottomOf="@id/travelDurationTitleTextView"
             android:layout_marginTop="@dimen/dp_12"
-            android:background="@color/gray_scale_400">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/travelDurationTextView"
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:drawableStart="@drawable/travel_duration_image"
-                android:drawablePadding="@dimen/dp_12"
-                android:fontFamily="@font/pretendard_medium"
-                android:layout_marginTop="@dimen/dp_12"
-                android:textSize="@dimen/sp_16"
-                android:layout_marginStart="@dimen/dp_16"
-                android:layout_marginEnd="@dimen/dp_16"
-                android:text="@string/user_input_travel_duration_hint"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:background="@color/gray_scale_50"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/travelPurposeTitleTextView"
@@ -125,33 +116,29 @@
             android:text="@string/user_input_travel_purpose"
             android:translationY="-1.41sp"
             app:layout_constraintStart_toStartOf="@id/titleTextView"
-            app:layout_constraintTop_toBottomOf="@id/travelDurationLayout"/>
+            app:layout_constraintTop_toBottomOf="@id/travelDurationTextView"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/travelPurposeLayout"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/travelPurposeTextView"
             android:layout_width="@dimen/dp_0"
             android:layout_height="48dp"
             app:layout_constraintStart_toStartOf="@id/titleTextView"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="@dimen/dp_20"
+            android:drawablePadding="@dimen/dp_12"
+            android:drawableStart="@drawable/travel_purpose_image"
+            android:paddingTop="@dimen/dp_12"
+            android:paddingBottom="@dimen/dp_12"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_16"
+            android:text="@string/user_input_travel_purpose_hint"
+            android:fontFamily="@font/pretendard_medium"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/gray_scale_400"
             app:layout_constraintTop_toBottomOf="@id/travelPurposeTitleTextView"
             android:layout_marginTop="@dimen/dp_12"
-            android:background="@color/gray_scale_400">
+            android:background="@color/gray_scale_50"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/travelPurposeTextView"
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:drawableStart="@drawable/travel_purpose_image"
-                android:layout_marginTop="@dimen/dp_12"
-                android:layout_marginStart="@dimen/dp_16"
-                android:layout_marginEnd="@dimen/dp_16"
-                android:textSize="@dimen/sp_16"
-                android:drawablePadding="@dimen/dp_12"
-                android:text="@string/user_input_travel_purpose_hint"
-                android:fontFamily="@font/pretendard_medium"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextButton"
