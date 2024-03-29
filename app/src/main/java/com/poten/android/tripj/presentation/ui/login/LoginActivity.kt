@@ -41,33 +41,31 @@ class LoginActivity : AppCompatActivity() {
          */
 
         with(binding) {
-            kakaoLoginImageView.setOnAvoidDuplicateClick {
-                // 임시 화면 전환용 코드
-                if (UserApiClient.instance.isKakaoTalkLoginAvailable(this@LoginActivity)) {
-                    UserApiClient.instance.loginWithKakaoTalk(this@LoginActivity) { token, error ->
-                        if (error != null) {
-                            // 로그인 실패
+//            kakaoLoginImageView.setOnAvoidDuplicateClick {
+//                // 임시 화면 전환용 코드
+//                if (UserApiClient.instance.isKakaoTalkLoginAvailable(this@LoginActivity)) {
+//                    UserApiClient.instance.loginWithKakaoTalk(this@LoginActivity) { token, error ->
+//                        if (error != null) {
+//                            // 로그인 실패
+//
+//                            if (error is ClientError && error.reason == ClientErrorCause.Cancelled) {
+//                                return@loginWithKakaoTalk
+//                            }
+//                            UserApiClient.instance
+//                                .loginWithKakaoAccount(this@LoginActivity, callback = callback)
+//                        } else if (token != null) {
+//                            Log.e("LoginActivity", token.toString())
+//                        }
+//
+//                    }
+//                } else {
+//                    UserApiClient.instance
+//                        .loginWithKakaoAccount(this@LoginActivity, callback=callback)
+//                }
 
-                            if (error is ClientError && error.reason == ClientErrorCause.Cancelled) {
-                                return@loginWithKakaoTalk
-                            }
-                            UserApiClient.instance
-                                .loginWithKakaoAccount(this@LoginActivity, callback = callback)
-                        } else if (token != null) {
-                            Log.e("LoginActivity", token.toString())
-                        }
 
-                    }
-                } else {
-                    UserApiClient.instance
-                        .loginWithKakaoAccount(this@LoginActivity, callback=callback)
-                }
-
-
-//                val intent = Intent(this@LoginActivity, SelectActivity::class.java)
-//                startActivity(intent)
-            }
-
+            val intent = Intent(this@LoginActivity, SelectActivity::class.java)
+            startActivity(intent)
 
             naverLoginImageView.setOnAvoidDuplicateClick {
 
@@ -76,4 +74,6 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
+
+
 }

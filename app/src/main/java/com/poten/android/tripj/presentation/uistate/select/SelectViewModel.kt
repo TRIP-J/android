@@ -60,6 +60,10 @@ class SelectViewModel @Inject constructor(
         _startDate.value= date as Date
     }
 
+    fun updateTravelPurpose(purpose: String) {
+        _travelPurpose.value=purpose
+    }
+
 
     fun next() {
         _selectStep.value+=1

@@ -41,6 +41,26 @@
 
     <string name="user_input_button_select_all">선택 완료</string>
 
-    <!-- Date Picker -->
+    <!-- calendar Fragment -->
     <string name="calendar_button">일정 적용하기</string>
+
+    <!-- PurposeFragment -->
+    <string name="purpose_title">여행 목적</string>
+    <string name="purpose_user_input">직접 입력하기</string>
+    <string name="purpose_rest_vacation">여유로운 휴식, 휴가</string>
+    <string name="purpose_visit_place">관광지 명소 방문</string>
+    <string name="purpose_business">사업, 업무 일정</string>
+    <string name="purpose_study">학업, 유학</string>
+    <string name="purpose_shopping">쇼핑</string>
+    <string name="purpose_marrige">신혼 여행</string>
+
+    <string-array name="purpose_array">
+        <item>@string/purpose_rest_vacation</item>
+        <item>@string/purpose_visit_place</item>
+        <item>@string/purpose_business</item>
+        <item>@string/purpose_study</item>
+        <item>@string/purpose_shopping</item>
+        <item>@string/purpose_marrige</item>
+    </string-array>
+
 </resources>
