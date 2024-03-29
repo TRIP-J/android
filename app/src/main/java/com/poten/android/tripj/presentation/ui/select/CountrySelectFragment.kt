@@ -3,6 +3,7 @@ package com.poten.android.tripj.presentation.ui.select
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -26,6 +27,7 @@ class CountrySelectFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         // UI 상에 있는 버튼 추가
         addButtons()
         // 버튼 1개만 선택되도록 하는 로직

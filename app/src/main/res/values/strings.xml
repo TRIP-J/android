@@ -40,4 +40,7 @@
     <string name="user_input_travel_purpose_hint">여행 목적을 선택해주세요.</string>
 
     <string name="user_input_button_select_all">선택 완료</string>
+
+    <!-- Date Picker -->
+    <string name="calendar_button">일정 적용하기</string>
 </resources>

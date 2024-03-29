@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -18,6 +20,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "KAKAO_NAVITE_APP_KEY", getApiKey("KAKAO_NATIVE_APP_KEY"))
+        manifestPlaceholders["KAKAO_APP_KEY"] = getApiKey("KAKAO_NATIVE_APP_KEY_NO_QUOTES")
     }
 
     buildTypes {
@@ -39,6 +44,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig=true
     }
 
     kapt {
@@ -74,4 +80,26 @@ dependencies {
     // Hilt
     implementation("com.google.dagger:hilt-android:2.48.1")
     kapt("com.google.dagger:hilt-compiler:2.48.1")
+
+    // Custom Calendar
+    implementation("com.github.prolificinteractive:material-calendarview:2.0.1")
+    implementation("com.jakewharton.threetenabp:threetenabp:1.2.1")
+
+    // kakao Login
+    implementation("com.kakao.sdk:v2-user:2.20.0")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+
+    // OkHttp
+    implementation("com.squqreup:okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
+
+}
+
+fun getApiKey(propertyKey: String): String {
+    return gradleLocalProperties(rootDir).getProperty(propertyKey)
 }

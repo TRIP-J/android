@@ -1,6 +1,9 @@
 package com.poten.android.tripj.util
 
+import android.content.Context
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +20,7 @@ import kotlin.coroutines.CoroutineContext
  * @param action (Main 함수 에서 실행될 로직)
  * @receiver
  */
-fun View.setOnAvoidDuplicateClick(action : () -> Unit) {
+fun View.setOnAvoidDuplicateClick(action: () -> Unit) {
     this.clicks()
         .flowOn(Dispatchers.Main)
         .throttleFirst(THROTTLE_TIME)
@@ -35,13 +38,31 @@ fun View.setOnAvoidDuplicateClick(action : () -> Unit) {
  * @param interval (입력 처리하는 간격)
  * @return
  */
-private fun <T> Flow<T>.throttleFirst(interval :Long) : Flow<T> = flow {
-    var throttleTime=0L
-    collect { upstream->
-        val currentTime=System.currentTimeMillis()
-        if ((currentTime-throttleTime)>interval) {
-            throttleTime=currentTime
+private fun <T> Flow<T>.throttleFirst(interval: Long): Flow<T> = flow {
+    var throttleTime = 0L
+    collect { upstream ->
+        val currentTime = System.currentTimeMillis()
+        if ((currentTime - throttleTime) > interval) {
+            throttleTime = currentTime
             emit(upstream)
+        }
+    }
+}
+
+fun EditText.closeKeyboard() {
+    this.clearFocus()
+    val inputMethodManager =
+        this.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(this.windowToken,0)
+}
+
+fun EditText.setOnEditorActionListener(action: Int, invoke: ()-> Unit) {
+    setOnEditorActionListener { _, actionId, _ ->
+        if (action==actionId) {
+            invoke()
+            true
+        } else {
+            false
         }
     }
 }

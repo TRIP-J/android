@@ -20,7 +20,23 @@
         <item name="android:textColor">@color/button_text_color</item>
     </style>
 
+    <style name="calendarWeekdayStyle">
+        <item name="android:textColor">@color/gray_scale_400</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
 
+    <style name="calendarDateStyle">
+        <item name="android:textColor">@color/gray_scale_700</item>
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="calendarHeaderStyle">
+        <item name="android:textColor">@color/gray_scale_700</item>
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
 </resources>
 
     
