@@ -4,7 +4,7 @@ import retrofit2.http.GET
 
 
 interface LoginService {
-//   @GET("/")
-
+   @GET("kakao")
+   suspend fun snsLogin()
 
 }

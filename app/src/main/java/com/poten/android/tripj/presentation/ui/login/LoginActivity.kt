@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.KakaoSdk
 import com.kakao.sdk.common.model.ClientError
@@ -14,18 +16,17 @@ import com.kakao.sdk.user.UserApiClient
 import com.poten.android.tripj.BuildConfig
 import com.poten.android.tripj.databinding.ActivityLoginBinding
 import com.poten.android.tripj.presentation.ui.select.SelectActivity
+import com.poten.android.tripj.presentation.uistate.login.LoginViewModel
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
-        if (error != null) {
+    private val viewModel : LoginViewModel by viewModels()
 
-        } else if (token != null) {
-            Log.e("LoginActivity", token.toString())
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,39 +42,19 @@ class LoginActivity : AppCompatActivity() {
          */
 
         with(binding) {
-//            kakaoLoginImageView.setOnAvoidDuplicateClick {
-//                // 임시 화면 전환용 코드
-//                if (UserApiClient.instance.isKakaoTalkLoginAvailable(this@LoginActivity)) {
-//                    UserApiClient.instance.loginWithKakaoTalk(this@LoginActivity) { token, error ->
-//                        if (error != null) {
-//                            // 로그인 실패
-//
-//                            if (error is ClientError && error.reason == ClientErrorCause.Cancelled) {
-//                                return@loginWithKakaoTalk
-//                            }
-//                            UserApiClient.instance
-//                                .loginWithKakaoAccount(this@LoginActivity, callback = callback)
-//                        } else if (token != null) {
-//                            Log.e("LoginActivity", token.toString())
-//                        }
-//
-//                    }
-//                } else {
-//                    UserApiClient.instance
-//                        .loginWithKakaoAccount(this@LoginActivity, callback=callback)
-//                }
+            kakaoLoginImageView.setOnAvoidDuplicateClick {
+                    lifecycleScope.launch {
+                        viewModel.login()
+                    }
+                }
 
 
-            val intent = Intent(this@LoginActivity, SelectActivity::class.java)
-            startActivity(intent)
+               /* val intent = Intent(this@LoginActivity, SelectActivity::class.java)
+                startActivity(intent)*/
 
             naverLoginImageView.setOnAvoidDuplicateClick {
 
             }
         }
-
-
     }
-
-
 }

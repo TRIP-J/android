@@ -9,8 +9,10 @@ import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentUserInputBinding
 import com.poten.android.tripj.presentation.ui.select.bottom.CalendarFragment
 import com.poten.android.tripj.presentation.ui.select.bottom.PurposeFragment
@@ -20,6 +22,7 @@ import com.poten.android.tripj.util.closeKeyboard
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 import com.poten.android.tripj.util.setOnEditorActionListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class UserInputFragment
@@ -35,15 +38,13 @@ class UserInputFragment
         TODO : 모두 입력 받으면 선택 완료를 눌러 서버에 데이터 전송 (POST)
         -> 모두 입력 받아야 선택 완료 버튼이 활성화 되도록
          */
-
-
+        initView()
 
         with(binding) {
             travelNameEditText.setOnEditorActionListener(EditorInfo.IME_ACTION_DONE) {
                 travelNameEditText.clearFocus()
                 travelNameEditText.closeKeyboard()
             }
-
 
             travelDurationTextView.setOnAvoidDuplicateClick {
                 CalendarFragment().show(childFragmentManager,null)
@@ -53,9 +54,21 @@ class UserInputFragment
                 PurposeFragment().show(childFragmentManager,null)
             }
 
+            lifecycleScope.launch {
+                viewModel.travelPurpose.collect {
+                    binding.travelPurposeTextView.text=it
+                }
+            }
         }
 
     }
+
+    private fun initView() {
+        with(binding) {
+            travelPurposeTextView.text=getString(R.string.user_input_travel_purpose_hint)
+        }
+    }
+
 
     companion object {
         fun newInstance() = UserInputFragment()

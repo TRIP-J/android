@@ -38,6 +38,7 @@ class PurposeFragment : BottomSheetDialogFragment() {
         itemList = resources.getStringArray(R.array.purpose_array).toList()
         Log.e("PurposeFragment", "Count: ${itemList.count()}")
 
+        // Item 선택 시 선택한 Item이 들어 가도록
         val purposeAdapter = PurposeAdapter(itemList) {
             viewModel.updateTravelPurpose(it)
             this@PurposeFragment.dismiss()
@@ -53,6 +54,7 @@ class PurposeFragment : BottomSheetDialogFragment() {
                 this@PurposeFragment.dismiss()
             }
 
+            // 직접 입력 시 직접 입력 한 데이터가 들어 가도록
             userInputEditText.setOnEditorActionListener(EditorInfo.IME_ACTION_DONE) {
                 userInputEditText.clearFocus()
                 viewModel.updateTravelPurpose(userInputEditText.text.toString())

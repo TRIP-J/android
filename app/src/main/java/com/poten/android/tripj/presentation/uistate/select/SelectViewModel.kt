@@ -1,13 +1,12 @@
 package com.poten.android.tripj.presentation.uistate.select
 
-import java.util.Date
 import androidx.lifecycle.ViewModel
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import java.text.SimpleDateFormat
-import java.time.LocalDate
+import java.util.Date
 import java.util.Locale
 import javax.inject.Inject
 
@@ -34,10 +33,10 @@ class SelectViewModel @Inject constructor(
     private val _endDate= MutableStateFlow<Date>(Date())
     val endDate=_endDate.asStateFlow()
 
-    private val _travelDuration= MutableStateFlow<String>("")
+    private val _travelDuration= MutableStateFlow<String>("여행 일정을 선택해주세요.")
     val travelDuration=_travelDuration.asStateFlow()
 
-    private val _travelPurpose= MutableStateFlow<String>("")
+    private val _travelPurpose= MutableStateFlow<String>("여행 목적을 선택해주세요. ")
     val travelPurpose=_travelPurpose.asStateFlow()
 
     fun updateCountry(country: String) {
