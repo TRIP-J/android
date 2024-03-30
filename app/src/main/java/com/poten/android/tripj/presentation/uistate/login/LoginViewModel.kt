@@ -20,12 +20,5 @@ class LoginViewModel @Inject constructor(
 ) : ViewModel() {
 
 
-    fun loginCallback(code: String, onResult: (Response<KakaoTokenResponse>) -> Unit) {
-        viewModelScope.launch {
-            val response= withContext(Dispatchers.IO) {
-                repository.loginCallback(code)
-            }
-            onResult(response)
-        }
-    }
+
 }
