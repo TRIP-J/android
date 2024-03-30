@@ -16,9 +16,10 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.TripJ"
         tools:targetApi="31">
+
         <meta-data
             android:name="com.poten.android.tripj.KAKAO"
-            android:value="{KAKAO_APP_KEY}"/>
+            android:value="{KAKAO}"/>
 
         <activity
             android:name=".presentation.ui.login.LoginActivity"
@@ -41,11 +42,12 @@
 
                 <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
                 <data android:host="oauth"
-                    android:scheme="kakao${KAKAO_APP_KEY}" />
+                    android:scheme="kakao${KAKAO}" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.poten.android.tripj.presentation.ui.select.SelectActivity" />
+        <activity android:name="com.poten.android.tripj.presentation.ui.select.SelectActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

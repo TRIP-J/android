@@ -21,8 +21,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "KAKAO_NAVITE_APP_KEY", getApiKey("KAKAO_NATIVE_APP_KEY"))
-        manifestPlaceholders["KAKAO_APP_KEY"] = getApiKey("KAKAO_NATIVE_APP_KEY_NO_QUOTES")
+        buildConfigField("String", "KAKAO", getApiKey("KAKAO_KEY"))
+        manifestPlaceholders["KAKAO"] = getApiKey("KAKAO_KEY")
     }
 
     buildTypes {
