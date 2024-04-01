@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/myTripFragment"
+        android:title="@string/home_bottom_my_trip"
+        android:icon="@drawable/home_bottom_my_trip_selected"
+        />
+
+    <item android:id="@+id/communityHomeFragment"
+        android:title="@string/home_bottom_community"
+        android:icon="@drawable/home_bottom_community_not_selected"/>
+
+
+    <item android:id="@+id/myInfoHomeFragment"
+        android:title="@string/home_bottom_my_info"
+        android:icon="@drawable/home_bottom_my_info_not_selected"/>
+</menu>

@@ -63,4 +63,10 @@
         <item>@string/purpose_marrige</item>
     </string-array>
 
+
+    <!-- Home bottom navigation text -->
+    <string name="home_bottom_my_trip">내 여행</string>
+    <string name="home_bottom_community">커뮤니티</string>
+    <string name="home_bottom_my_info">내 정보</string>
+
 </resources>

@@ -10,3 +10,9 @@ typealias FragmentInflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 const val THROTTLE_TIME=300L
 
 const val BASE_URL="http://192.168.45.212/"
+
+const val AUTHORIZATION_HEADER="Authorization"
+const val BEARER="Bearer "
+
+const val LOGIN_KAKAO="KAKAO"
+const val LOGIN_NAVER="NAVER"

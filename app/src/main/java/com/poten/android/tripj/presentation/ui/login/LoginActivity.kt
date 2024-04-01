@@ -9,14 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.common.KakaoSdk
 import com.kakao.sdk.common.model.AuthErrorCause
-import com.kakao.sdk.common.model.ClientError
-import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
-import com.poten.android.tripj.BuildConfig
+import com.poten.android.tripj.data.model.OauthRequest
 import com.poten.android.tripj.databinding.ActivityLoginBinding
+import com.poten.android.tripj.presentation.ui.select.SelectActivity
 import com.poten.android.tripj.presentation.uistate.login.LoginViewModel
+import com.poten.android.tripj.util.BEARER
+import com.poten.android.tripj.util.LOGIN_KAKAO
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -70,9 +70,16 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
             Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
-        } else if (token != null) {
-            Log.e(TAG,token.toString())
-
+        }
+        // 카카오톡 로그인 성공 시
+        else if (token != null) {
+            Log.e(TAG, token.accessToken)
+            lifecycleScope.launch {
+                Log.e(TAG, "THIS NOT CALLED")
+                viewModel.login("$BEARER${token.accessToken}", OauthRequest(userType = LOGIN_KAKAO))
+                Toast.makeText(this@LoginActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@LoginActivity, SelectActivity::class.java))
+            }
         }
     }
 
@@ -86,24 +93,25 @@ class LoginActivity : AppCompatActivity() {
 
 
         with(binding) {
-            kakaoLoginImageView.setOnAvoidDuplicateClick {
-                if (UserApiClient.instance.isKakaoTalkLoginAvailable(this@LoginActivity)) {
-                    Log.e(TAG,"Kakao Talk")
+             kakaoLoginImageView.setOnAvoidDuplicateClick {
+            /*    if (UserApiClient.instance.isKakaoTalkLoginAvailable(this@LoginActivity)) {
+                    Log.e(TAG, "Kakao Talk")
                     UserApiClient.instance.loginWithKakaoTalk(
                         this@LoginActivity,
                         callback = callback
                     )
                 } else {
-                    Log.e(TAG,"Kakao Account")
+                    Log.e(TAG, "Kakao Account")
                     UserApiClient.instance.loginWithKakaoAccount(
                         this@LoginActivity,
                         callback = callback
                     )
-                }
-            }
+                }*/
 
-            /* val intent = Intent(this@LoginActivity, SelectActivity::class.java)
-             startActivity(intent)*/
+            val intent = Intent(this@LoginActivity, SelectActivity::class.java)
+            startActivity(intent)
+        }
+
 
             naverLoginImageView.setOnAvoidDuplicateClick {
 

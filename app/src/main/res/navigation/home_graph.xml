@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_graph"
+    app:startDestination="@id/myTripFragment">
+
+    <fragment
+        android:id="@+id/myTripFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.mytrip.MyTripFragment"
+        android:label="MyTripFragment"
+        tools:layout="@layout/fragment_my_trip"
+        />
+
+    <fragment
+        android:id="@+id/communityHomeFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.community.CommunityHomeFragment"
+        android:label="CommunityHomeFragment"
+        tools:layout="@layout/fragment_my_info_home"/>
+    <fragment
+        android:id="@+id/myInfoHomeFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.myinfo.MyInfoHomeFragment"
+        android:label="MyInfoHomeFragment"
+        tools:layout="@layout/fragment_community_home"/>
+
+</navigation>

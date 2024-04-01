@@ -1,5 +1,6 @@
 package com.poten.android.tripj.presentation.ui.select
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentUserInputBinding
+import com.poten.android.tripj.presentation.ui.home.HomeActivity
 import com.poten.android.tripj.presentation.ui.select.bottom.CalendarFragment
 import com.poten.android.tripj.presentation.ui.select.bottom.PurposeFragment
 import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
@@ -47,17 +49,24 @@ class UserInputFragment
             }
 
             travelDurationTextView.setOnAvoidDuplicateClick {
-                CalendarFragment().show(childFragmentManager,null)
+                CalendarFragment().show(childFragmentManager, null)
             }
 
             travelPurposeTextView.setOnAvoidDuplicateClick {
-                PurposeFragment().show(childFragmentManager,null)
+                PurposeFragment().show(childFragmentManager, null)
             }
 
             lifecycleScope.launch {
                 viewModel.travelPurpose.collect {
-                    binding.travelPurposeTextView.text=it
+                    binding.travelPurposeTextView.text = it
                 }
+            }
+
+
+            // 다음 Activity로
+            binding.nextButton.setOnAvoidDuplicateClick {
+
+                activity?.startActivity(Intent(requireContext(), HomeActivity::class.java))
             }
         }
 
@@ -65,7 +74,7 @@ class UserInputFragment
 
     private fun initView() {
         with(binding) {
-            travelPurposeTextView.text=getString(R.string.user_input_travel_purpose_hint)
+            travelPurposeTextView.text = getString(R.string.user_input_travel_purpose_hint)
         }
     }
 
