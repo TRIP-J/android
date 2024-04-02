@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_scale_50"
+    app:cardCornerRadius="@dimen/dp_12">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageCardView"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="86dp"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/dp_16"
+            app:cardCornerRadius="@dimen/dp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/contentImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cautionNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginTop="@dimen/dp_16"
+            android:fontFamily="@font/pretendard_bold"
+            android:gravity="top"
+            android:lineSpacingExtra="4sp"
+            android:textColor="#000000"
+            android:textSize="@dimen/sp_20"
+            android:translationY="-2.07sp"
+            app:layout_constraintStart_toStartOf="@id/imageCardView"
+            app:layout_constraintTop_toBottomOf="@id/imageCardView"
+            tools:text="좌측통행" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cautionContentTextView"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="72dp"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:gravity="top"
+            android:lineSpacingExtra="5sp"
+            android:textColor="@color/gray_scale_500"
+            android:textSize="@dimen/sp_16"
+            android:translationY="-2.45sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/imageCardView"
+            app:layout_constraintStart_toStartOf="@id/imageCardView"
+            app:layout_constraintTop_toBottomOf="@id/cautionNameTextView"
+            tools:text="일본은 좌측통행이 기본이에요 에스컬레이터는 물론이고 이것저것 작성해서 간단하게 컨텐츠를 보여줄 예정이에요"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

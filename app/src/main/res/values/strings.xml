@@ -69,4 +69,23 @@
     <string name="home_bottom_community">커뮤니티</string>
     <string name="home_bottom_my_info">내 정보</string>
 
+
+
+    <!-- Home Fragment Text -->
+    <string name="home_fragment_previous_trip">지난 여행 기록</string>
+    <string name="home_fragment_trip_info_title">여행 정보</string>
+    <string name="home_fragment_check_list_title">체크리스트</string>
+    <string name="home_fragment_exchange_title">환율</string>
+    <string name="home_fragment_trip_tip_title">여행 꿀팁</string>
+    <string name="home_fragment_trip_tip_content_talk">여행 가기 전\n기본 회화 배우기</string>
+    <string name="home_fragment_trip_tip_content_cautious">여행 가기 전\n주의사항 알고가기</string>
+    <string name="home_fragment_check_list_hint">가져갈 물품을 같이 확인해요</string>
+
+    <!-- TalkTip Activity -->
+    <string name="talk_tip_activity_title">기본 회화 배우기</string>
+
+    <!-- CautionTip Activity -->
+    <string name="caution_tip_activity_title">주의사항 알고가기</string>
+
+
 </resources>

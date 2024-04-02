@@ -1,16 +1,376 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/white">
 
     <androidx.appcompat.widget.AppCompatTextView
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/tripNameTextView"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="48dp"
+            android:layout_marginTop="@dimen/dp_16"
+            android:clipToOutline="true"
+            android:ellipsize="end"
+            android:fontFamily="@font/pretendard_bold"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="3sp"
+            android:maxLines="1"
+            android:paddingStart="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_12"
+            android:paddingEnd="@dimen/dp_20"
+            android:paddingBottom="@dimen/dp_12"
+            android:textColor="#000000"
+            android:textSize="@dimen/sp_18"
+            android:translationY="-1.41sp"
+            app:layout_constraintEnd_toStartOf="@id/showPreviousTripTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="s"
+            tools:text="임의의 텍스트" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/showPreviousTripTextView"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="48dp"
+            android:background="@color/gray_scale_50"
+            android:fontFamily="@font/pretendard_medium"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="3sp"
+            android:paddingStart="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_12"
+            android:paddingEnd="@dimen/dp_20"
+            android:paddingBottom="@dimen/dp_12"
+            android:text="@string/home_fragment_previous_trip"
+            android:textColor="@color/gray_scale_400"
+            android:textSize="@dimen/sp_18"
+            android:translationY="-1.41sp"
+            app:layout_constraintBottom_toBottomOf="@id/tripNameTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tripNameTextView"
+            app:layout_constraintTop_toTopOf="@id/tripNameTextView" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_0"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/tripNameTextView"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="내 여행"
-        android:textSize="30sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="ScrollViewCount">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tripInfoTitleTextView"
+                style="@style/textEtc"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="@string/home_fragment_trip_info_title"
+                android:textColor="#161616"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/arrowImageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/arrow_front"
+                app:layout_constraintBottom_toBottomOf="@id/tripInfoTitleTextView"
+                app:layout_constraintStart_toEndOf="@id/tripInfoTitleTextView"
+                app:layout_constraintTop_toTopOf="@id/tripInfoTitleTextView" />
+
+            <androidx.constraintlayout.helper.widget.Layer
+                android:id="@+id/tripInfoLayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tripInfoTitleTextView,arrowImageView"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tripInfoCardView"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="128dp"
+                android:layout_marginTop="@dimen/dp_12"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:background="@color/white"
+                android:elevation="@dimen/dp_8"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tripInfoTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/tripInfoTitleTextView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/countryFlagImageView"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_16"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@drawable/x_image" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/countryNameTextView"
+                        style="@style/tripContentStyle"
+                        app:layout_constraintBottom_toBottomOf="@id/countryFlagImageView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/countryFlagImageView"
+                        app:layout_constraintTop_toTopOf="@id/countryFlagImageView"
+                        tools:text="일본" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/calendarImageView"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:src="@drawable/travel_duration_image"
+                        app:layout_constraintStart_toStartOf="@id/countryFlagImageView"
+                        app:layout_constraintTop_toBottomOf="@id/countryFlagImageView" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/travelDurationTextView"
+                        style="@style/tripContentStyle"
+                        app:layout_constraintBottom_toBottomOf="@id/calendarImageView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/calendarImageView"
+                        app:layout_constraintTop_toTopOf="@id/calendarImageView"
+                        tools:text="3.26(화) - 3.30(토)" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/purposeImageView"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:src="@drawable/travel_purpose_image"
+                        app:layout_constraintStart_toStartOf="@id/countryFlagImageView"
+                        app:layout_constraintTop_toBottomOf="@id/calendarImageView" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tripPurposeTextView"
+                        style="@style/tripContentStyle"
+                        app:layout_constraintBottom_toBottomOf="@id/purposeImageView"
+                        app:layout_constraintStart_toEndOf="@id/purposeImageView"
+                        app:layout_constraintTop_toTopOf="@id/purposeImageView"
+                        tools:text="여행 목적" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/checkListTitleTextView"
+                style="@style/textEtc"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginTop="@dimen/dp_40"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="@string/home_fragment_check_list_title"
+                android:textColor="#161616"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintStart_toStartOf="@id/tripInfoTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/tripInfoCardView" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/checkListCardView"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintEnd_toEndOf="@id/tripInfoCardView"
+                app:layout_constraintStart_toStartOf="@id/tripInfoTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/checkListTitleTextView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:drawableStart="@drawable/plus_image"
+                        android:drawablePadding="@dimen/dp_4"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="top"
+                        android:lineSpacingExtra="-1sp"
+                        android:text="@string/home_fragment_check_list_hint"
+                        android:textColor="@color/gray_scale_900"
+                        android:textSize="14sp"
+                        android:translationY="-1.41sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/exchangeTitleTextView"
+                style="@style/textEtc"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginTop="@dimen/dp_40"
+                android:text="@string/home_fragment_exchange_title"
+                app:layout_constraintStart_toStartOf="@id/tripInfoTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/checkListCardView" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/currencyCardView"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="72dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@color/white"
+                android:elevation="@dimen/dp_8"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@id/tripInfoCardView"
+                app:layout_constraintStart_toStartOf="@id/tripInfoTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/exchangeTitleTextView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/exchangeAmountCardView"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="96dp"
+                android:layout_marginTop="@dimen/dp_4"
+                android:elevation="8dp"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@id/tripInfoCardView"
+                app:layout_constraintStart_toStartOf="@id/tripInfoTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/currencyCardView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tipTitleTextView"
+                style="@style/textEtc"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginTop="@dimen/dp_32"
+                android:text="@string/home_fragment_trip_tip_title"
+                app:layout_constraintStart_toStartOf="@id/tripInfoTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/exchangeAmountCardView" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/talkTipCardView"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="168dp"
+                app:layout_constraintTop_toBottomOf="@id/tipTitleTextView"
+                app:layout_constraintStart_toStartOf="@id/tripInfoTitleTextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginBottom="40dp"
+                android:layout_marginEnd="2dp"
+                app:layout_constraintEnd_toStartOf="@id/cautionTipCardView"
+                app:cardCornerRadius="@dimen/dp_8"
+                android:background="@color/white"
+                android:elevation="8dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/talkTipTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:fontFamily="@font/pretendard_semibold"
+                        android:gravity="top"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:lineSpacingExtra="3sp"
+                        android:text="@string/home_fragment_trip_tip_content_talk"
+                        android:textColor="@color/gray_scale_900"
+                        android:textSize="18sp"
+                        android:translationY="-1.41sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/talkImageView"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginBottom="@dimen/dp_16"
+                        android:layout_marginEnd="@dimen/dp_16"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/talk_tip_image"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cautionTipCardView"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="168dp"
+                app:cardCornerRadius="@dimen/dp_8"
+                android:elevation="@dimen/dp_8"
+                android:background="@color/white"
+                android:layout_marginStart="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="40dp"
+                app:layout_constraintStart_toEndOf="@id/talkTipCardView"
+                app:layout_constraintEnd_toEndOf="@id/tripInfoCardView"
+                app:layout_constraintTop_toTopOf="@id/talkTipCardView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cautionTipTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:fontFamily="@font/pretendard_semibold"
+                        android:gravity="top"
+                        android:lineSpacingExtra="3sp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:text="@string/home_fragment_trip_tip_content_cautious"
+                        android:textColor="@color/gray_scale_900"
+                        android:textSize="18sp"
+                        android:translationY="-1.41sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/cautionImageView"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginEnd="@dimen/dp_16"
+                        android:layout_marginBottom="@dimen/dp_16"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/caution_tip_image"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

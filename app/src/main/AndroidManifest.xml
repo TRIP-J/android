@@ -49,6 +49,7 @@
         <activity android:name="com.poten.android.tripj.presentation.ui.select.SelectActivity"
             android:exported="true"/>
         <activity android:name="com.poten.android.tripj.presentation.ui.home.HomeActivity" />
+        <activity android:name="com.poten.android.tripj.presentation.ui.home.mytrip.tips.TalkTipActivity" />
     </application>
 
 </manifest>
