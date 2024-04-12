@@ -2,7 +2,7 @@ package com.poten.android.tripj.data.di
 
 import com.poten.android.tripj.data.retrofit.LoginService
 import com.poten.android.tripj.domain.repository.LoginRepository
-import com.poten.android.tripj.domain.repository.LoginRepositoryImpl
+import com.poten.android.tripj.data.usecase.LoginRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

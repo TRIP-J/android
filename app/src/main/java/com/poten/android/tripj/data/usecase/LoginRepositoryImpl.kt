@@ -1,9 +1,10 @@
-package com.poten.android.tripj.domain.repository
+package com.poten.android.tripj.data.usecase
 
 
 import com.poten.android.tripj.data.model.OauthRequest
 import com.poten.android.tripj.data.model.OauthResponse
 import com.poten.android.tripj.data.retrofit.LoginService
+import com.poten.android.tripj.domain.repository.LoginRepository
 import retrofit2.Response
 import javax.inject.Inject
 
