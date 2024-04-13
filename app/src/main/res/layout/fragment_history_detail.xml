@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/arrowImageView"
+        android:layout_width="@dimen/dp_32"
+        android:layout_height="@dimen/dp_32"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_12"
+        android:src="@drawable/arrow_back_32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/travelInfoTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="@dimen/dp_32"
+        android:fontFamily="@font/pretendard_bold"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/history_detail_fragment_travel_title"
+        android:textColor="#161616"
+        android:textSize="18sp"
+        android:translationY="-1.41sp"
+        app:layout_constraintStart_toStartOf="@id/arrowImageView"
+        app:layout_constraintTop_toBottomOf="@id/arrowImageView" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/contentCardView"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="164dp"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:elevation="@dimen/dp_8"
+        app:cardCornerRadius="@dimen/dp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/arrowImageView"
+        app:layout_constraintTop_toBottomOf="@id/travelInfoTitleTextView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/travelNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:drawableStart="@drawable/travel_textinput_drawable_start"
+                android:drawablePadding="@dimen/dp_12"
+                android:fontFamily="@font/pretendard_semibold"
+                android:gravity="top"
+                android:lineSpacingExtra="5sp"
+                android:textColor="@color/gray_scale_700"
+                android:textSize="@dimen/sp_16"
+                android:translationY="-2.45sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="즐거운 오사카 여행" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/travelCountryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:drawableStart="@drawable/travel_textinput_drawable_start"
+                android:drawablePadding="@dimen/dp_12"
+                android:fontFamily="@font/pretendard_semibold"
+                android:gravity="top"
+                android:lineSpacingExtra="5sp"
+                android:textColor="@color/gray_scale_700"
+                android:textSize="@dimen/sp_16"
+                android:translationY="-2.45sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/travelNameTextView"
+                tools:text="일본" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/travelDurationTextView"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:drawableStart="@drawable/travel_duration_image"
+                android:drawablePadding="@dimen/dp_12"
+                android:fontFamily="@font/pretendard_semibold"
+                android:gravity="top"
+                android:lineSpacingExtra="5sp"
+                android:textColor="@color/gray_scale_700"
+                android:textSize="@dimen/sp_16"
+                android:translationY="-2.45sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/travelCountryTextView"
+                tools:text="3.26(화)-3.30(토)" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/travelPurposeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:drawableStart="@drawable/travel_purpose_image"
+                android:drawablePadding="@dimen/dp_12"
+                android:fontFamily="@font/pretendard_semibold"
+                android:gravity="top"
+                android:lineSpacingExtra="5sp"
+                android:textColor="@color/gray_scale_700"
+                android:textSize="@dimen/sp_16"
+                android:translationY="-2.45sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/travelDurationTextView"
+                tools:text="여유로운 휴식, 휴가" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/checkListTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="@dimen/dp_40"
+        android:fontFamily="@font/pretendard_bold"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/history_detail_fragment_check_list_title"
+        android:textColor="#161616"
+        android:textSize="18sp"
+        android:translationY="-1.41sp"
+        app:layout_constraintStart_toStartOf="@id/arrowImageView"
+        app:layout_constraintTop_toBottomOf="@id/contentCardView"/>
+    
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/checkListRecyclerView"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="372dp"
+            app:layout_constraintStart_toStartOf="@id/arrowImageView"
+            app:layout_constraintEnd_toEndOf="@id/contentCardView"
+            app:layout_constraintTop_toBottomOf="@id/checkListTitleTextView"
+            android:layout_marginTop="@dimen/dp_16"/>
+        
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,6 +50,7 @@
             android:exported="true"/>
         <activity android:name="com.poten.android.tripj.presentation.ui.home.HomeActivity" />
         <activity android:name="com.poten.android.tripj.presentation.ui.home.mytrip.tips.TalkTipActivity" />
+        <activity android:name="com.poten.android.tripj.presentation.ui.home.mytrip.history.HistoryActivity" />
     </application>
 
 </manifest>
