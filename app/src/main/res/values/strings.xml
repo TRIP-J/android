@@ -93,4 +93,14 @@
     <string name="history_detail_fragment_check_list_title">체크리스트</string>
 
 
+    <!-- My Info-->
+    <string name="myInfo_fragment_last_history">지난 여행 기록</string>
+    <string name="my_info_fragment_my_post">내 게시글</string>
+    <string name="my_info_fragment_my_like">내 좋아요</string>
+    <string name="my_info_fragment_setting_title">설정</string>
+    <string name="my_info_fragment_login_setting">로그인 설정</string>
+
+    <string name="my_info_fragment_customer_service">고객 센터</string>
+    <string name="my_info_fragment_frequent_query">자주 묻는 사항</string>
+    <string name="my_info_fragment_notification">공지 사항</string>
 </resources>
