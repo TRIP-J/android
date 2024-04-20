@@ -15,9 +15,6 @@ class SelectViewModel @Inject constructor(
 
 ) : ViewModel() {
 
-    private val _selectStep= MutableStateFlow<Int>(0)
-    val selectStep=_selectStep.asStateFlow()
-
     private val _country= MutableStateFlow<String>("")
     val country=_country.asStateFlow()
 
@@ -36,7 +33,7 @@ class SelectViewModel @Inject constructor(
     private val _travelDuration= MutableStateFlow<String>("여행 일정을 선택해주세요.")
     val travelDuration=_travelDuration.asStateFlow()
 
-    private val _travelPurpose= MutableStateFlow<String>("여행 목적을 선택해주세요. ")
+    private val _travelPurpose= MutableStateFlow<String>("여행 목적을 선택해주세요.")
     val travelPurpose=_travelPurpose.asStateFlow()
 
     fun updateCountry(country: String) {
@@ -63,12 +60,7 @@ class SelectViewModel @Inject constructor(
         _travelPurpose.value=purpose
     }
 
-
-    fun next() {
-        _selectStep.value+=1
-    }
-
-    fun before() {
-        _selectStep.value+=1
+    fun updateTravelName(name: String) {
+        _travelName.value=name
     }
 }

@@ -79,8 +79,7 @@
             android:textSize="@dimen/sp_16"
             android:hint="@string/user_input_travel_name_hint"
             android:background="@color/gray_scale_50"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:clipToOutline="true"/>
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -140,9 +139,7 @@
             android:paddingStart="@dimen/dp_16"
             android:paddingEnd="@dimen/dp_16"
             android:text="@string/user_input_travel_purpose_hint"
-            android:fontFamily="@font/pretendard_medium"
             android:textSize="@dimen/sp_16"
-            android:textColor="@color/gray_scale_400"
             app:layout_constraintTop_toBottomOf="@id/travelPurposeTitleTextView"
             android:layout_marginTop="@dimen/dp_12"
             android:background="@color/gray_scale_50"/>

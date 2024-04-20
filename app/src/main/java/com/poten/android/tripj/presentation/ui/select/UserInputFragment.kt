@@ -2,17 +2,14 @@ package com.poten.android.tripj.presentation.ui.select
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentUserInputBinding
 import com.poten.android.tripj.presentation.ui.home.HomeActivity
@@ -42,13 +39,12 @@ class UserInputFragment
          */
         initView()
         initBackPress()
+        initNextButton()
+        setTravelPurposeEditText()
+        observeTravelPurpose()
+
 
         with(binding) {
-            travelNameEditText.setOnEditorActionListener(EditorInfo.IME_ACTION_DONE) {
-                travelNameEditText.clearFocus()
-                travelNameEditText.closeKeyboard()
-            }
-
             travelDurationTextView.setOnAvoidDuplicateClick {
                 CalendarFragment().show(childFragmentManager, null)
             }
@@ -56,28 +52,13 @@ class UserInputFragment
             travelPurposeTextView.setOnAvoidDuplicateClick {
                 PurposeFragment().show(childFragmentManager, null)
             }
-
-            lifecycleScope.launch {
-                viewModel.travelPurpose.collect {
-                    binding.travelPurposeTextView.text = it
-                }
-            }
-
-
-            // 다음 Activity로
-            binding.nextButton.setOnAvoidDuplicateClick {
-                /* TODO: Post로 서버에 여행 정보 전송 */
-
-                activity?.startActivity(Intent(requireContext(), HomeActivity::class.java))
-            }
         }
-
     }
 
     private fun initView() {
         with(binding) {
             travelPurposeTextView.text = getString(R.string.user_input_travel_purpose_hint)
-            toolBar.titleTextView.text=""
+            toolBar.titleTextView.text = ""
         }
     }
 
@@ -87,6 +68,60 @@ class UserInputFragment
         }
     }
 
+    private fun initNextButton() {
+        // 다음 Activity로 이동
+        binding.nextButton.setOnAvoidDuplicateClick {
+            /* TODO: Post로 서버에 여행 정보 전송 -> 데이터가 비어있거나 선택 안되었으면 버튼 비활성화*/
+
+            activity?.startActivity(Intent(requireContext(), HomeActivity::class.java))
+        }
+    }
+
+    private fun setTravelPurposeEditText() {
+        binding.travelNameEditText.apply{
+            doAfterTextChanged { name->
+                viewModel.updateTravelName(name.toString())
+                changeNameFont(name.toString())
+            }
+
+            setOnEditorActionListener(EditorInfo.IME_ACTION_DONE) {
+                binding.travelNameEditText.clearFocus()
+                binding.travelNameEditText.closeKeyboard()
+            }
+        }
+    }
+
+    private fun changeNameFont(name: String) {
+        if (name.isNotEmpty()) {
+            binding.travelNameEditText.typeface=ResourcesCompat.getFont(
+                requireContext(),R.font.pretendard_semibold
+            )
+        }
+    }
+
+    private fun observeTravelPurpose() {
+        lifecycleScope.launch {
+            viewModel.travelPurpose.collect { purpose ->
+                binding.travelPurposeTextView.text = purpose
+                // 초기 데이터만 색상 흐리게 사용자 입력을 받으면 바뀌도록
+                if (purpose == getString(R.string.user_input_travel_purpose_hint)) {
+                    binding.travelPurposeTextView.setTextColor(
+                        ContextCompat.getColor(requireContext(), R.color.gray_scale_400)
+                    )
+                    binding.travelPurposeTextView.typeface = ResourcesCompat.getFont(
+                        requireContext(), R.font.pretendard_medium
+                    )
+                } else {
+                    binding.travelPurposeTextView.setTextColor(
+                        ContextCompat.getColor(requireContext(), R.color.gray_scale_700)
+                    )
+                    binding.travelPurposeTextView.typeface = ResourcesCompat.getFont(
+                        requireContext(), R.font.pretendard_semibold
+                    )
+                }
+            }
+        }
+    }
 
     companion object {
         fun newInstance() = UserInputFragment()

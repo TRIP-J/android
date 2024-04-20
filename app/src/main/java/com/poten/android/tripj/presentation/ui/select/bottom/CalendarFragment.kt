@@ -29,6 +29,10 @@ class CalendarFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getDate()
+    }
+
+    private fun getDate() {
         binding.calendarView.setOnRangeSelectedListener { widget, dates ->
             if (dates.size == 1) {
                 startDate = dates[0]
@@ -38,10 +42,10 @@ class CalendarFragment : BottomSheetDialogFragment() {
                 endDate = dates[dates.size - 1]
             }
             Log.e("TAG","${startDate.toString()} : ${endDate.toString()}")
+            // ViewModel에 갱신
             setStartDate()
             setEndDate()
         }
-
     }
 
     private fun setStartDate() {
