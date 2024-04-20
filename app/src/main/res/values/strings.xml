@@ -3,7 +3,7 @@
 
     <string name="login_introduce">당신의 여행을 도와줄 MBTI J친구</string>
 
-    <string name="select_title">김포텐님!\n어디로 여행 갈 예정인가요?</string>
+    <string name="select_title">님!\n어디로 여행 갈 예정인가요?</string>
     <string name="select_sub_title">국가를 선택하시면 좋은 정보를 추천해줄게요!</string>
 
     <string name="select_continent_asia">아시아</string>
@@ -29,7 +29,7 @@
     <string name="select_button_next">다음</string>
 
 
-    <string name="user_input_title">김포텐님!\n여행을 준비중이신가요?</string>
+    <string name="user_input_title">님!\n여행을 준비중이신가요?</string>
     <string name="user_input_subtitle">여행을 계획적으로 준비할 수 있게 도와줄게요</string>
 
     <string name="user_input_travel_name">여행 이름</string>

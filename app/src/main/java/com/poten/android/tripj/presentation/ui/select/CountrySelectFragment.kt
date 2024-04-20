@@ -29,11 +29,17 @@ class CountrySelectFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // toolbar 뒤로가기 제거
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        initView()
         addButtons()
         initCountryButton()
         initNextButton()
+    }
+
+    private fun initView() {
+        binding.toolBar.apply{
+            backImageView.visibility=View.INVISIBLE
+            titleTextView.text=""
+        }
     }
 
     /**
