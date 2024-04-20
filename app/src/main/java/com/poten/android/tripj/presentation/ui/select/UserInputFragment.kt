@@ -40,7 +40,8 @@ class UserInputFragment
         initView()
         initBackPress()
         initNextButton()
-        setTravelPurposeEditText()
+        initTravelPurposeEditText()
+        observeTravelName()
         observeTravelPurpose()
 
 
@@ -77,7 +78,7 @@ class UserInputFragment
         }
     }
 
-    private fun setTravelPurposeEditText() {
+    private fun initTravelPurposeEditText() {
         binding.travelNameEditText.apply{
             doAfterTextChanged { name->
                 viewModel.updateTravelName(name.toString())
@@ -96,6 +97,14 @@ class UserInputFragment
             binding.travelNameEditText.typeface=ResourcesCompat.getFont(
                 requireContext(),R.font.pretendard_semibold
             )
+        }
+    }
+
+    private fun observeTravelName() {
+        lifecycleScope.launch {
+            viewModel.travelName.collect { name->
+                binding.travelNameEditText.setText(name)
+            }
         }
     }
 
