@@ -1,5 +1,6 @@
 package com.poten.android.tripj.presentation.ui.select
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -22,62 +23,68 @@ class CountrySelectFragment
 
     private val viewModel: SelectViewModel by activityViewModels()
 
-    private var buttonMap = mapOf<Int, Button>()
+    private var buttonList = listOf<Button>()
+
     private var focusedButton: Button? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        // UI 상에 있는 버튼 추가
+        // toolbar 뒤로가기 제거
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         addButtons()
-        // 버튼 1개만 선택되도록 하는 로직
-        changeCheckedButton()
+        initCountryButton()
+        initNextButton()
+    }
 
-        with(binding) {
-            nextButton.setOnAvoidDuplicateClick {
-                val navController = findNavController()
-                navController.apply {
-                    navigate(R.id.action_countrySelectFragment_to_userInputFragment)
-                }
+    /**
+     * Add buttons
+     * 10 개의 버튼을 한 번에 관리하기 위함
+     * @author harry
+     */
+    private fun addButtons() {
+        buttonList = listOf(
+            binding.japanButton,
+            binding.chineseButton,
+            binding.thailandButton,
+            binding.hongkongButton,
+            binding.englandButton,
+            binding.franceButton,
+            binding.italyButton,
+            binding.usaButton,
+            binding.canadaButton,
+            binding.argentinaButton
+        )
+    }
+
+    private fun initCountryButton() {
+        for (button in buttonList) {
+            button.setOnAvoidDuplicateClick {
+                handleButtonClick(button)
+                setCountry()
+                setContinent()
+                setNextButton()
             }
         }
     }
 
-    private fun addButtons() {
-        buttonMap = mapOf(
-            binding.japanButton.id to binding.japanButton,
-            binding.chineseButton.id to binding.chineseButton,
-            binding.thailandButton.id to binding.thailandButton,
-            binding.hongkongButton.id to binding.hongkongButton,
-            binding.englandButton.id to binding.englandButton,
-            binding.franceButton.id to binding.franceButton,
-            binding.italyButton.id to binding.italyButton,
-            binding.usaButton.id to binding.usaButton,
-            binding.canadaButton.id to binding.canadaButton,
-            binding.argentinaButton.id to binding.argentinaButton,
-        )
-    }
+    @SuppressLint("ResourceAsColor")
+    private fun handleButtonClick(clickedButton: Button) {
+        if (focusedButton != null) {
+            val previousButton = focusedButton
+            previousButton?.apply {
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_scale_900))
+                setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.gray_scale_100))
+            }
+        }
 
-    private fun changeCheckedButton() {
-        for (button in buttonMap.values) {
-            button.setOnAvoidDuplicateClick {
-                button.requestFocus()
-                focusedButton?.apply {
-                    setBackgroundResource(R.drawable.background_country_button_selected)
-                    setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_scale_900))
-                }
+        if (focusedButton == clickedButton) {
+            focusedButton = null
+        } else {
+            clickedButton.apply {
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.sky_blue_500))
 
-                button.apply {
-                    setBackgroundResource(R.drawable.background_country_button_not_selected)
-                    setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_scale_100))
-                }
-
-                // focus 변경
-                focusedButton = button
-
-                setCountry()
-                setContinent()
-                setNextButton()
+                focusedButton = clickedButton
             }
         }
     }
@@ -106,13 +113,36 @@ class CountrySelectFragment
         }
     }
 
+    /**
+     * Set next button
+     * 이 메서드로 next button을 선택된 버튼이 있는지에 따라 활성화 비활성화
+     * focused button이 nullable 타입이지만 예외를 만들지 않음
+     */
     private fun setNextButton() {
-        binding.nextButton.apply {
-            setBackgroundColor(
-                ContextCompat
-                    .getColor(requireContext(), R.color.sky_blue_500)
-            )
-            isEnabled = true
+        if (focusedButton != null) {
+            binding.nextButton.apply {
+                setBackgroundColor(
+                    ContextCompat
+                        .getColor(requireContext(), R.color.sky_blue_500)
+                )
+                isEnabled = true
+            }
+        } else {
+            binding.nextButton.apply {
+                setBackgroundColor(
+                    ContextCompat
+                        .getColor(requireContext(), R.color.gray_scale_300)
+                )
+                isEnabled = false
+            }
+        }
+    }
+
+    private fun initNextButton() {
+        binding.nextButton.setOnAvoidDuplicateClick {
+            findNavController().apply {
+                navigate(R.id.action_countrySelectFragment_to_userInputFragment)
+            }
         }
     }
 

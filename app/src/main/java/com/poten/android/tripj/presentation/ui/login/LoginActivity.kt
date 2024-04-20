@@ -10,7 +10,6 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
-import com.kakao.sdk.user.UserApiClient
 import com.poten.android.tripj.data.model.OauthRequest
 import com.poten.android.tripj.databinding.ActivityLoginBinding
 import com.poten.android.tripj.presentation.ui.select.SelectActivity

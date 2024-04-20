@@ -42,6 +42,7 @@ class UserInputFragment
          */
         initView()
 
+
         with(binding) {
             travelNameEditText.setOnEditorActionListener(EditorInfo.IME_ACTION_DONE) {
                 travelNameEditText.clearFocus()
@@ -70,6 +71,10 @@ class UserInputFragment
             }
         }
 
+        Log.e(
+            "UserInputFragment",
+            "data: ${viewModel.country.value} + ${viewModel.continent.value}"
+        )
     }
 
     private fun initView() {

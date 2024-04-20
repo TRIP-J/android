@@ -50,16 +50,18 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/japanButton"
         style="@style/CountryButton"
+        android:background="@drawable/background_country_button_r4"
         android:layout_marginTop="@dimen/dp_12"
         android:text="@string/select_country_japan"
         app:layout_constraintEnd_toStartOf="@id/chineseButton"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@id/titleTextView"
         app:layout_constraintTop_toBottomOf="@id/asiaTextView" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/chineseButton"
         style="@style/CountryButton"
+        android:background="@drawable/background_country_button_r4"
         android:text="@string/select_country_chinese"
         app:layout_constraintBottom_toBottomOf="@id/japanButton"
         app:layout_constraintEnd_toStartOf="@id/thailandButton"
@@ -69,6 +71,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/thailandButton"
         style="@style/CountryButton"
+        android:background="@drawable/background_country_button_r4"
         android:text="@string/select_country_thailand"
         app:layout_constraintBottom_toBottomOf="@id/japanButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,11 +81,13 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/hongkongButton"
-        app:layout_constraintTop_toBottomOf="@id/japanButton"
-        app:layout_constraintStart_toStartOf="@id/japanButton"
-        app:layout_constraintEnd_toEndOf="@id/japanButton"
         style="@style/CountryButton"
-        android:text="@string/select_country_hongkong"/>
+        android:layout_marginTop="4dp"
+        android:background="@drawable/background_country_button_r4"
+        android:text="@string/select_country_hongkong"
+        app:layout_constraintStart_toStartOf="@id/japanButton"
+        app:layout_constraintEnd_toStartOf="@id/chineseButton"
+        app:layout_constraintTop_toBottomOf="@id/japanButton" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/europeTextView"
@@ -95,9 +100,10 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/englandButton"
         style="@style/CountryButton"
+        android:background="@drawable/background_country_button_r4"
         app:layout_constraintTop_toBottomOf="@id/europeTextView"
         app:layout_constraintStart_toStartOf="@id/titleTextView"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintEnd_toStartOf="@id/franceButton"
         android:layout_marginTop="@dimen/dp_12"
         android:text="@string/select_country_england"/>
@@ -105,6 +111,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/franceButton"
         style="@style/CountryButton"
+        android:background="@drawable/background_country_button_r4"
         app:layout_constraintTop_toTopOf="@id/englandButton"
         app:layout_constraintBottom_toBottomOf="@id/englandButton"
         app:layout_constraintStart_toEndOf="@id/englandButton"
@@ -114,6 +121,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/italyButton"
         style="@style/CountryButton"
+        android:background="@drawable/background_country_button_r4"
         app:layout_constraintStart_toEndOf="@id/franceButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/englandButton"
@@ -133,6 +141,7 @@
         android:id="@+id/usaButton"
         style="@style/CountryButton"
         android:text="@string/select_country_usa"
+        android:background="@drawable/background_country_button_r4"
         app:layout_constraintStart_toStartOf="@id/titleTextView"
         app:layout_constraintTop_toBottomOf="@id/americaTextView"
         app:layout_constraintEnd_toStartOf="@id/canadaButton"
@@ -143,6 +152,7 @@
         android:id="@+id/canadaButton"
         style="@style/CountryButton"
         android:text="@string/select_country_canada"
+        android:background="@drawable/background_country_button_r4"
         app:layout_constraintTop_toTopOf="@id/usaButton"
         app:layout_constraintEnd_toStartOf="@id/argentinaButton"
         app:layout_constraintBottom_toBottomOf="@id/usaButton"
@@ -151,6 +161,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/argentinaButton"
         style="@style/CountryButton"
+        android:background="@drawable/background_country_button_r4"
         android:text="@string/select_country_argentina"
         app:layout_constraintStart_toEndOf="@id/canadaButton"
         app:layout_constraintEnd_toEndOf="parent"

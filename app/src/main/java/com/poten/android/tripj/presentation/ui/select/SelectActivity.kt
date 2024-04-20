@@ -1,17 +1,11 @@
 package com.poten.android.tripj.presentation.ui.select
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.ActivitySelectBinding
-import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SelectActivity : AppCompatActivity() {

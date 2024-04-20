@@ -18,11 +18,5 @@
     <fragment
         android:id="@+id/userInputFragment"
         android:name="com.poten.android.tripj.presentation.ui.select.UserInputFragment"
-        android:label="UserInputFragment" >
-        <action
-            android:id="@+id/action_userInputFragment_to_countrySelectFragment"
-            app:destination="@id/countrySelectFragment"
-            app:restoreState="true"
-            app:popUpTo="@id/countrySelectFragment"/>
-    </fragment>
+        android:label="UserInputFragment" />
 </navigation>
