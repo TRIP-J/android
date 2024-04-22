@@ -2,6 +2,7 @@ package com.poten.android.tripj.presentation.ui.select
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -29,16 +30,17 @@ class CountrySelectFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView()
         addButtons()
+        initView()
         initCountryButton()
         initNextButton()
+        observeCountryButton()
     }
 
     private fun initView() {
-        binding.toolBar.apply{
-            backImageView.visibility=View.INVISIBLE
-            titleTextView.text=""
+        binding.toolBar.apply {
+            backImageView.visibility = View.INVISIBLE
+            titleTextView.text = ""
         }
     }
 
@@ -89,7 +91,6 @@ class CountrySelectFragment
             clickedButton.apply {
                 setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
                 setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.sky_blue_500))
-
                 focusedButton = clickedButton
             }
         }
@@ -152,8 +153,31 @@ class CountrySelectFragment
         }
     }
 
+    /**
+     * Observe country button
+     * 사용자가 기존에 선택한 Button을 유지하도록
+     * @author harry
+     */
+    private fun observeCountryButton() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.country.collect { selectedCountryName ->
+                buttonList.forEach { button ->
+                    if (button.text == selectedCountryName) {
+                        focusedButton = button
+                        button.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                        button.setBackgroundColor(
+                            ContextCompat.getColor(
+                                requireContext(),
+                                R.color.sky_blue_500
+                            )
+                        )
+                    }
+                }
+            }
+        }
+    }
+
     companion object {
         fun newInstance() = CountrySelectFragment()
     }
-
 }

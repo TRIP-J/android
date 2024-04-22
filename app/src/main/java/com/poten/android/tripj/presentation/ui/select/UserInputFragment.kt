@@ -2,6 +2,7 @@ package com.poten.android.tripj.presentation.ui.select
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.core.content.ContextCompat
@@ -43,7 +44,6 @@ class UserInputFragment
         initTravelPurposeEditText()
         observeTravelName()
         observeTravelPurpose()
-
 
         with(binding) {
             travelDurationTextView.setOnAvoidDuplicateClick {
