@@ -35,6 +35,8 @@ class CountrySelectFragment
         initCountryButton()
         initNextButton()
         observeCountryButton()
+
+        // TODO : 사용자 정보 받아와 이름 부분 연결 작업만 남았음
     }
 
     private fun initView() {

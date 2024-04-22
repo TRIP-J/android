@@ -82,7 +82,6 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:2.48.1")
 
     // Custom Calendar
-    implementation("com.github.prolificinteractive:material-calendarview:2.0.1")
     implementation("com.jakewharton.threetenabp:threetenabp:1.2.1")
 
     // kakao Login

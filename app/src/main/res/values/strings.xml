@@ -43,6 +43,13 @@
 
     <!-- calendar Fragment -->
     <string name="calendar_button">일정 적용하기</string>
+    <string name="calendar_weekday_sunday">일</string>
+    <string name="calendar_weekday_monday">월</string>
+    <string name="calendar_weekday_tuesday">화</string>
+    <string name="calendar_weekday_wednesday">수</string>
+    <string name="calendar_weekday_thursday">목</string>
+    <string name="calendar_weekday_friday">금</string>
+    <string name="calendar_weekday_saturday">토</string>
 
     <!-- PurposeFragment -->
     <string name="purpose_title">여행 목적</string>

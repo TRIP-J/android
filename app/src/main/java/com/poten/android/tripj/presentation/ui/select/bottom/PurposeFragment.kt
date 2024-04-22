@@ -36,13 +36,13 @@ class PurposeFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         itemList = resources.getStringArray(R.array.purpose_array).toList()
-        Log.e("PurposeFragment", "Count: ${itemList.count()}")
 
         // Item 선택 시 선택한 Item이 들어 가도록
         val purposeAdapter = PurposeAdapter(itemList) {
             viewModel.updateTravelPurpose(it)
             this@PurposeFragment.dismiss()
         }
+
         with(binding) {
             recyclerView.apply {
                 adapter = purposeAdapter
