@@ -102,6 +102,14 @@
     <!-- Community Post Detail Fragment -->
     <string name="post_detail_fragment_title">게시글</string>
 
+    <!--Community Edit Post Fragment-->
+    <string name="post_edit_fragment_title">게시글 작성</string>
+    <string name="post_edit_fragment_enroll">등록</string>
+    <string name="post_edit_fragment_subject">주제를 선택해주세요</string>
+    <string name="post_edit_fragment_post_title">글 제목을 작성해주세요</string>
+    <string name="post_edit_fragment_post_content">자유롭게 여행 글을 작성해주세요</string>
+    <string name="post_edit_fragment_add_picture">사진 추가하기</string>
+
     <!-- TalkTip Activity -->
     <string name="talk_tip_activity_title">기본 회화 배우기</string>
 
