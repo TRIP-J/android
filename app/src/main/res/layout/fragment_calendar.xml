@@ -9,81 +9,21 @@
         android:id="@+id/calendarHeader"
         layout="@layout/layout_calendar_header" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/sundayTextView"
-        style="@style/calendarWeekdayStyle"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/calendar_weekday_sunday"
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/mondayTextView"
-        app:layout_constraintTop_toBottomOf="@id/calendarHeader" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mondayTextView"
-        style="@style/calendarWeekdayStyle"
-        app:layout_constraintTop_toTopOf="@id/sundayTextView"
-        app:layout_constraintBottom_toBottomOf="@id/sundayTextView"
-        app:layout_constraintStart_toEndOf="@id/sundayTextView"
-        app:layout_constraintEnd_toStartOf="@id/tuesdayTextView"
-        android:text="@string/calendar_weekday_monday"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tuesdayTextView"
-        style="@style/calendarWeekdayStyle"
-        app:layout_constraintTop_toTopOf="@id/sundayTextView"
-        app:layout_constraintBottom_toBottomOf="@id/sundayTextView"
-        app:layout_constraintStart_toEndOf="@id/mondayTextView"
-        app:layout_constraintEnd_toStartOf="@id/wednesdayTextView"
-        android:text="@string/calendar_weekday_tuesday" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/wednesdayTextView"
-        style="@style/calendarWeekdayStyle"
-        app:layout_constraintTop_toTopOf="@id/sundayTextView"
-        app:layout_constraintBottom_toBottomOf="@id/sundayTextView"
-        app:layout_constraintStart_toEndOf="@id/tuesdayTextView"
-        app:layout_constraintEnd_toStartOf="@id/thursdayTextView"
-        android:text="@string/calendar_weekday_wednesday" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/thursdayTextView"
-        style="@style/calendarWeekdayStyle"
-        app:layout_constraintTop_toTopOf="@id/sundayTextView"
-        app:layout_constraintStart_toEndOf="@id/wednesdayTextView"
-        app:layout_constraintEnd_toStartOf="@id/fridayTextView"
-        app:layout_constraintBottom_toBottomOf="@id/sundayTextView"
-        android:text="@string/calendar_weekday_thursday" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/fridayTextView"
-        style="@style/calendarWeekdayStyle"
-        app:layout_constraintTop_toTopOf="@id/sundayTextView"
-        app:layout_constraintStart_toEndOf="@id/thursdayTextView"
-        app:layout_constraintEnd_toStartOf="@id/saturdayTextView"
-        app:layout_constraintBottom_toBottomOf="@id/sundayTextView"
-        android:text="@string/calendar_weekday_friday" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/saturdayTextView"
-        style="@style/calendarWeekdayStyle"
-        app:layout_constraintTop_toTopOf="@id/sundayTextView"
-        app:layout_constraintStart_toEndOf="@id/fridayTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="33dp"
-        app:layout_constraintBottom_toBottomOf="@id/sundayTextView"
-        android:text="@string/calendar_weekday_saturday" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/calendarRecyclerView"
-        android:layout_width="0dp"
+        app:layout_constraintTop_toBottomOf="@id/calendarHeader"
+        android:layout_marginTop="30dp"
+        app:mcv_dateTextAppearance="@style/calendarDateStyle"
+        app:mcv_selectionColor="@color/sky_blue_500"
+        app:mcv_weekDayTextAppearance="@style/calendarWeekdayStyle"
+        app:mcv_headerTextAppearance="@style/calendarHeaderStyle"
         android:layout_height="400dp"
-        app:spanCount="7"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintStart_toStartOf="@id/sundayTextView"
-        app:layout_constraintEnd_toEndOf="@id/saturdayTextView"
-        app:layout_constraintTop_toBottomOf="@id/sundayTextView"
-        android:layout_marginTop="@dimen/dp_16"/>
+        app:mcv_selectionMode="range"
+        app:mcv_showOtherDates="defaults"
+        app:mcv_calendarMode="month"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/finishButton"
@@ -92,7 +32,7 @@
         android:layout_marginEnd="@dimen/dp_20"
         android:background="@color/gray_scale_300"
         android:enabled="false"
-        app:layout_constraintTop_toBottomOf="@id/calendarRecyclerView"
+        app:layout_constraintTop_toBottomOf="@id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:text="@string/calendar_button"

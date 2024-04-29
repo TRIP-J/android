@@ -82,6 +82,7 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:2.48.1")
 
     // Custom Calendar
+    implementation ("com.github.prolificinteractive:material-calendarview:2.0.1")
     implementation("com.jakewharton.threetenabp:threetenabp:1.2.1")
 
     // kakao Login
@@ -96,7 +97,8 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
-
+    // recyclerView
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 }
 
 fun getApiKey(propertyKey: String): String {

@@ -1,10 +1,13 @@
 package com.poten.android.tripj.presentation.uistate.select
 
 import androidx.lifecycle.ViewModel
+import com.prolificinteractive.materialcalendarview.CalendarDay
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
@@ -41,8 +44,8 @@ class SelectViewModel @Inject constructor(
         _continent.value=continent
     }
 
-    /*fun updateStartDate(startDate: CalendarDay?) {
-        val dateFormat=SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    fun updateStartDate(startDate: CalendarDay?) {
+        val dateFormat= SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date=dateFormat.parse(startDate.toString().substring(12).removePrefix("}"))
         _startDate.value= date as Date
     }
@@ -51,7 +54,7 @@ class SelectViewModel @Inject constructor(
         val dateFormat=SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date=dateFormat.parse(endDate.toString().substring(12).removePrefix("}"))
         _startDate.value= date as Date
-    }*/
+    }
 
     fun updateTravelPurpose(purpose: String) {
         _travelPurpose.value=purpose
