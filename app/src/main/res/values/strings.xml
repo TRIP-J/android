@@ -99,6 +99,9 @@
         <item>꿀팁</item>
     </string-array>
 
+    <!-- Community Post Detail Fragment -->
+    <string name="post_detail_fragment_title">게시글</string>
+
     <!-- TalkTip Activity -->
     <string name="talk_tip_activity_title">기본 회화 배우기</string>
 
