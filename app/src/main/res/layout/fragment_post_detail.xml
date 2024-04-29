@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:nestedScrollingEnabled="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/includedToolBar"
+            layout="@layout/layout_toolbar" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/userProfileImageView"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="34dp"
+            android:src="@drawable/user_default_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/includedToolBar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:textColor="@color/gray_scale_900"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/userProfileImageView"
+            app:layout_constraintTop_toTopOf="@id/userProfileImageView"
+            tools:text="정데이" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/timeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:textColor="@color/gray_scale_400"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@id/userNameTextView"
+            app:layout_constraintTop_toBottomOf="@id/userNameTextView"
+            tools:text="10분전" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/postTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/gray_scale_900"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/userProfileImageView"
+            app:layout_constraintTop_toBottomOf="@id/userProfileImageView"
+            tools:text="지금 오사카인데 같이 맛집 가실 분 있을까요" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/postContentTextView"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_scale_600"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/postTitleTextView"
+            app:layout_constraintStart_toStartOf="@id/userProfileImageView"
+            app:layout_constraintTop_toBottomOf="@id/postTitleTextView"
+            tools:text="혼자서 여행왔는데 시간이 남아서 심심한데 같이 맛있는 라면 먹으러 가실 분 있으실까요?? 편하게 댓글 남겨주세요" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/imageRecyclerView"
+            android:layout_width="335dp"
+            android:layout_height="335dp"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/postTitleTextView"
+            app:layout_constraintStart_toStartOf="@id/userProfileImageView"
+            app:layout_constraintTop_toBottomOf="@id/postContentTextView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/likeImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/like_image"
+            app:layout_constraintEnd_toStartOf="@id/likeCountTextView"
+            app:layout_constraintStart_toStartOf="@id/userProfileImageView"
+            app:layout_constraintTop_toBottomOf="@id/imageRecyclerView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/likeCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:textColor="@color/gray_scale_900"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/likeImageView"
+            app:layout_constraintStart_toEndOf="@id/likeImageView"
+            app:layout_constraintTop_toTopOf="@id/likeImageView"
+            tools:text="좋아요 43개" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/replyImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="43dp"
+            android:src="@drawable/reply_image"
+            app:layout_constraintBottom_toBottomOf="@id/likeImageView"
+            app:layout_constraintStart_toEndOf="@id/guideLine"
+            app:layout_constraintTop_toTopOf="@id/likeImageView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/replyCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:textColor="@color/gray_scale_900"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/likeCountTextView"
+            app:layout_constraintStart_toEndOf="@id/replyImageView"
+            app:layout_constraintTop_toTopOf="@id/likeCountTextView"
+            tools:text="댓글 12개" />
+
+        <View
+            android:id="@+id/divideLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_divide_line"
+            app:layout_constraintTop_toBottomOf="@id/likeImageView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/replyTitleCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:textColor="@color/gray_scale_900"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/userProfileImageView"
+            app:layout_constraintTop_toBottomOf="@id/divideLine"
+            tools:text="댓글 3개" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/replyRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@id/postTitleTextView"
+            app:layout_constraintStart_toStartOf="@id/userProfileImageView"
+            app:layout_constraintTop_toBottomOf="@id/replyTitleCountTextView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
