@@ -5,22 +5,87 @@
     android:id="@+id/home_graph"
     app:startDestination="@id/myTripFragment">
 
+    <!-- 여행 정보 -->
+
     <fragment
         android:id="@+id/myTripFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.mytrip.MyTripFragment"
         android:label="MyTripFragment"
         tools:layout="@layout/fragment_my_trip"
-        />
+        >
+        <action
+            android:id="@+id/action_myTripFragment_to_historyListFragment"
+            app:destination="@id/historyListFragment" />
+        <action
+            android:id="@+id/action_myTripFragment_to_countrySelectFragment2"
+            app:destination="@id/countrySelectFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/historyListFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.mytrip.history.HistoryListFragment"
+        android:label="HistoryListFragment"
+        tools:layout="@layout/fragment_history_list">
+        <action
+            android:id="@+id/action_historyListFragment_to_historyDetailFragment"
+            app:destination="@id/historyDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyDetailFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.mytrip.history.HistoryDetailFragment"
+        android:label="HistoryDetailFragment"
+        tools:layout="@layout/fragment_history_detail"/>
+
+    <fragment
+        android:id="@+id/countrySelectFragment2"
+        android:name="com.poten.android.tripj.presentation.ui.select.CountrySelectFragment"
+        android:label="CountrySelectFragment"
+        tools:layout="@layout/fragment_country_select">
+        <action
+            android:id="@+id/action_countrySelectFragment2_to_userInputFragment2"
+            app:destination="@id/userInputFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInputFragment2"
+        android:name="com.poten.android.tripj.presentation.ui.select.UserInputFragment"
+        android:label="UserInputFragment"
+        tools:layout="@layout/fragment_user_input"/>
+
+    <!-- 커뮤니티 -->
 
     <fragment
         android:id="@+id/communityHomeFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.community.CommunityHomeFragment"
         android:label="CommunityHomeFragment"
         tools:layout="@layout/fragment_my_info_home"/>
+
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.community.detail.PostDetailFragment"
+        android:label="PostDetailFragment"
+        tools:layout="@layout/fragment_post_detail"/>
+
+    <fragment
+        android:id="@+id/postEditFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.community.edit.PostEditFragment"
+        android:label="PostEditFragment"
+        tools:layout="@layout/fragment_post_edit"/>
+
+    <!-- 마이페이지 -->
+
     <fragment
         android:id="@+id/myInfoHomeFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.myinfo.MyInfoHomeFragment"
         android:label="MyInfoHomeFragment"
-        tools:layout="@layout/fragment_community_home"/>
+        tools:layout="@layout/fragment_community_home">
+        <action
+            android:id="@+id/action_myInfoHomeFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+        <action
+            android:id="@+id/action_myInfoHomeFragment_to_postEditFragment"
+            app:destination="@id/postEditFragment" />
+    </fragment>
+
+
 
 </navigation>
