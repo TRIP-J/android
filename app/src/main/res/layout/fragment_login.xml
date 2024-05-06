@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".presentation.ui.login.LoginActivity">
+    tools:context=".presentation.ui.MainActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logoImageView"
@@ -42,14 +42,5 @@
         app:layout_constraintStart_toStartOf="@id/logoImageView"
         app:layout_constraintTop_toBottomOf="@id/introduceTextView" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/naverLoginImageView"
-        android:layout_width="335dp"
-        android:layout_height="@dimen/dp_56"
-        android:layout_marginTop="@dimen/dp_16"
-        android:src="@drawable/naver_login"
-        app:layout_constraintEnd_toEndOf="@id/logoImageView"
-        app:layout_constraintStart_toStartOf="@id/logoImageView"
-        app:layout_constraintTop_toBottomOf="@id/kakaoLoginImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
