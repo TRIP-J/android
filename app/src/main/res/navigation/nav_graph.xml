@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_graph"
-    app:startDestination="@id/myTripFragment">
+    app:startDestination="@id/loginFragment">
 
     <!-- 여행 정보 -->
 
@@ -17,8 +17,14 @@
             android:id="@+id/action_myTripFragment_to_historyListFragment"
             app:destination="@id/historyListFragment" />
         <action
-            android:id="@+id/action_myTripFragment_to_countrySelectFragment2"
-            app:destination="@id/countrySelectFragment2" />
+            android:id="@+id/action_myTripFragment_to_countrySelectFragment"
+            app:destination="@id/countrySelectFragment" />
+        <action
+            android:id="@+id/action_myTripFragment_to_cautionTipFragment"
+            app:destination="@id/cautionTipFragment" />
+        <action
+            android:id="@+id/action_myTripFragment_to_conversationTipFragment"
+            app:destination="@id/conversationTipFragment" />
     </fragment>
 
     <fragment
@@ -37,19 +43,23 @@
         tools:layout="@layout/fragment_history_detail"/>
 
     <fragment
-        android:id="@+id/countrySelectFragment2"
+        android:id="@+id/countrySelectFragment"
         android:name="com.poten.android.tripj.presentation.ui.select.CountrySelectFragment"
         android:label="CountrySelectFragment"
         tools:layout="@layout/fragment_country_select">
         <action
-            android:id="@+id/action_countrySelectFragment2_to_userInputFragment2"
-            app:destination="@id/userInputFragment2" />
+            android:id="@+id/action_countrySelectFragment_to_userInputFragment"
+            app:destination="@id/userInputFragment" />
     </fragment>
     <fragment
-        android:id="@+id/userInputFragment2"
+        android:id="@+id/userInputFragment"
         android:name="com.poten.android.tripj.presentation.ui.select.UserInputFragment"
         android:label="UserInputFragment"
-        tools:layout="@layout/fragment_user_input"/>
+        tools:layout="@layout/fragment_user_input">
+        <action
+            android:id="@+id/action_userInputFragment_to_myTripFragment"
+            app:destination="@id/myTripFragment" />
+    </fragment>
 
     <!-- 커뮤니티 -->
 
@@ -57,7 +67,14 @@
         android:id="@+id/communityHomeFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.community.CommunityHomeFragment"
         android:label="CommunityHomeFragment"
-        tools:layout="@layout/fragment_my_info_home"/>
+        tools:layout="@layout/fragment_community_home">
+        <action
+            android:id="@+id/action_communityHomeFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+        <action
+            android:id="@+id/action_communityHomeFragment_to_postEditFragment"
+            app:destination="@id/postEditFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/postDetailFragment"
@@ -77,15 +94,39 @@
         android:id="@+id/myInfoHomeFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.myinfo.MyInfoHomeFragment"
         android:label="MyInfoHomeFragment"
-        tools:layout="@layout/fragment_community_home">
+        tools:layout="@layout/fragment_my_info_home"/>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.poten.android.tripj.presentation.ui.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_myInfoHomeFragment_to_postDetailFragment"
-            app:destination="@id/postDetailFragment" />
+            android:id="@+id/action_loginFragment_to_countrySelectFragment"
+            app:destination="@id/countrySelectFragment" />
         <action
-            android:id="@+id/action_myInfoHomeFragment_to_postEditFragment"
-            app:destination="@id/postEditFragment" />
+            android:id="@+id/action_loginFragment_to_myTripFragment"
+            app:destination="@id/myTripFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/cautionTipFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.mytrip.tips.CautionTipFragment"
+        android:label="CautionTipFragment"
+        tools:layout="@layout/fragment_caution_tip">
+        <action
+            android:id="@+id/action_cautionTipFragment_to_cautionDetailFragment"
+            app:destination="@id/cautionDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cautionDetailFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.mytrip.tips.CautionDetailFragment"
+        android:label="CautionDetailFragment"
+        tools:layout="@layout/fragment_caution_detail"/>
 
+    <fragment
+        android:id="@+id/conversationTipFragment"
+        android:name="com.poten.android.tripj.presentation.ui.home.mytrip.tips.ConversationTipFragment"
+        android:label="ConversationTipFragment"
+        tools:layout="@layout/fragment_conversation_tip"/>
 
 
 </navigation>

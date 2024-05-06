@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentUserInputBinding
-import com.poten.android.tripj.presentation.ui.home.HomeActivity
 import com.poten.android.tripj.presentation.ui.select.bottom.CalendarFragment
 import com.poten.android.tripj.presentation.ui.select.bottom.PurposeFragment
 import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
@@ -72,8 +71,7 @@ class UserInputFragment
         // 다음 Activity로 이동
         binding.nextButton.setOnAvoidDuplicateClick {
             /* TODO: Post로 서버에 여행 정보 전송 -> 데이터가 비어있거나 선택 안되었으면 버튼 비활성화*/
-
-            activity?.startActivity(Intent(requireContext(), HomeActivity::class.java))
+            findNavController().navigate(R.id.action_userInputFragment_to_myTripFragment)
         }
     }
 

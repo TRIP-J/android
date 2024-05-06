@@ -22,7 +22,7 @@
             android:value="{KAKAO}"/>
 
         <activity
-            android:name=".presentation.ui.login.LoginActivity"
+            android:name=".presentation.ui.MainActivity"
             android:theme="@style/Theme.AppCompat.Starting"
             android:exported="true">
             <intent-filter>
@@ -46,11 +46,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.poten.android.tripj.presentation.ui.select.SelectActivity"
-            android:exported="true"/>
-        <activity android:name="com.poten.android.tripj.presentation.ui.home.HomeActivity" />
-        <activity android:name="com.poten.android.tripj.presentation.ui.home.mytrip.tips.ConversationTipActivity" />
-        <activity android:name="com.poten.android.tripj.presentation.ui.home.mytrip.tips.CautionTipActivity" />
     </application>
 
 </manifest>

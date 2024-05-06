@@ -6,8 +6,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.poten.android.tripj.databinding.FragmentMyTripBinding
-import com.poten.android.tripj.presentation.ui.home.mytrip.tips.CautionTipActivity
-import com.poten.android.tripj.presentation.ui.home.mytrip.tips.ConversationTipActivity
 import com.poten.android.tripj.util.BaseFragment
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 
@@ -40,22 +38,20 @@ class MyTripFragment : BaseFragment<FragmentMyTripBinding>(FragmentMyTripBinding
         binding.tripInfoLayer.setOnAvoidDuplicateClick {
             findNavController()
                 .navigate(
-                    MyTripFragmentDirections.actionMyTripFragmentToCountrySelectFragment2()
+                    MyTripFragmentDirections.actionMyTripFragmentToCountrySelectFragment()
                 )
         }
     }
 
     private fun getConversation() {
         binding.conversationTipCardView.setOnAvoidDuplicateClick {
-            (activity as AppCompatActivity)
-                .startActivity(Intent(requireContext(), ConversationTipActivity::class.java))
+            findNavController().navigate(MyTripFragmentDirections.actionMyTripFragmentToConversationTipFragment())
         }
     }
 
     private fun getCaution() {
         binding.cautionTipCardView.setOnAvoidDuplicateClick {
-            (activity as AppCompatActivity)
-                .startActivity(Intent(requireContext(), CautionTipActivity::class.java))
+            findNavController().navigate(MyTripFragmentDirections.actionMyTripFragmentToCautionTipFragment())
         }
     }
 
