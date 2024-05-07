@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <layer-list >
+            <!-- 시작일 우측 연결 배경 -->
+            <item>
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:startColor="@color/sky_blue_100"
+                    android:endColor="@android:color/transparent"
+                    android:angle="0" />
+                </shape>
+            </item>
+
+            <item>
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:startColor="@android:color/transparent"
+                    android:endColor="@color/sky_blue_100"
+                    android:angle="180" />
+                </shape>
+            </item>
+        </layer-list>
+
+    </item>
+
+    <item android:drawable="@android:color/transparent"/>
+</selector>

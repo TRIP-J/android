@@ -24,10 +24,10 @@ class SelectViewModel @Inject constructor(
     private val _travelName= MutableStateFlow<String>("")
     val travelName=_travelName.asStateFlow()
 
-    private val _startDate= MutableStateFlow<Date>(Date())
+    private val _startDate= MutableStateFlow<CalendarDay>(CalendarDay.today())
     val startDate=_startDate.asStateFlow()
 
-    private val _endDate= MutableStateFlow<Date>(Date())
+    private val _endDate= MutableStateFlow<CalendarDay>(CalendarDay.today())
     val endDate=_endDate.asStateFlow()
 
     private val _travelDuration= MutableStateFlow<String>("여행 일정을 선택해주세요.")
@@ -44,16 +44,16 @@ class SelectViewModel @Inject constructor(
         _continent.value=continent
     }
 
-    fun updateStartDate(startDate: CalendarDay?) {
+    fun updateStartDate(startDate: CalendarDay) {
         val dateFormat= SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date=dateFormat.parse(startDate.toString().substring(12).removePrefix("}"))
-        _startDate.value= date as Date
+        _startDate.value= startDate
     }
 
-    fun updateEndDate(endDate: CalendarDay?) {
+    fun updateEndDate(endDate: CalendarDay) {
         val dateFormat=SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date=dateFormat.parse(endDate.toString().substring(12).removePrefix("}"))
-        _startDate.value= date as Date
+        _endDate.value= endDate
     }
 
     fun updateTravelPurpose(purpose: String) {

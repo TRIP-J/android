@@ -7,20 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.poten.android.tripj.databinding.FragmentCalendarBinding
 import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 import com.prolificinteractive.materialcalendarview.CalendarDay
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class CalendarFragment : BottomSheetDialogFragment() {
 
     private val viewModel: SelectViewModel by activityViewModels()
     private lateinit var binding: FragmentCalendarBinding
     private var startDate: CalendarDay? = null
     private var endDate: CalendarDay? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,13 +35,17 @@ class CalendarFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getDate()
-        initExitButton()
         initCalendarView()
-
+        getRangeDate()
+        initExitButton()
+        observeStartDate()
     }
 
-    private fun getDate() {
+    /**
+     * Get range date
+     * 시작 일, 종료 일 가져오기
+     */
+    private fun getRangeDate() {
         binding.calendarView.setOnRangeSelectedListener { _, dates ->
             if (dates.size == 1) {
                 startDate = dates[0]
@@ -48,33 +54,70 @@ class CalendarFragment : BottomSheetDialogFragment() {
                 startDate = dates[0]
                 endDate = dates[dates.size - 1]
             }
+
             Log.e("TAG", "${startDate.toString()} : ${endDate.toString()}")
             // ViewModel에 갱신
             setStartDate()
             setEndDate()
+            updateDecorator()
+
         }
     }
 
+    private fun observeStartDate() {
+        lifecycleScope.launch {
+            viewModel.startDate.collect {date->
+                if (date.toString().isEmpty()) {
+                    Log.e("TAG",date.toString())
+                    clearDecorators()
+                }
+            }
+        }
+    }
+
+    private fun updateDecorator() {
+        binding.calendarView.removeDecorators()
+        if (startDate != null && endDate != null) {
+            binding.calendarView.addDecorator(StartEndDecorator(requireContext(),startDate!!,endDate!!))
+            binding.calendarView.addDecorator(RangeDecorator(requireContext(), startDate!!, endDate!!))
+            binding.calendarView.addDecorator(StartEdgeDecorator(requireContext(),startDate!!))
+            binding.calendarView.addDecorator(EndEdgeDecorator(requireContext(),endDate!!))
+
+        }
+        binding.calendarView.invalidateDecorators()
+    }
+
+    private fun clearDecorators() {
+        binding.calendarView.apply {
+            removeDecorators()
+            invalidateDecorators()
+        }
+    }
+
+    // X 이미지 눌렀을 때 동작
     private fun initExitButton() {
         binding.calendarHeader.closeImageView.setOnAvoidDuplicateClick {
             dismiss()
         }
     }
 
+
     @SuppressLint("SetTextI18n")
     private fun initCalendarView() {
         // 상단 visibility 제거 및 년, 월 설정
         binding.calendarView.topbarVisible = false
-        binding.calendarHeader.yearMonthTextView.text=getCalendarYearAndMonth()
+        binding.calendarHeader.yearMonthTextView.text = getCalendarYearAndMonth()
+        binding.calendarView.setOnRangeSelectedListener { widget, dates ->
 
-        // 화살표 눌렀을 때 이벤트 처리
+        }
+
         setCalendarArrowImage()
-        // 스와이프 했을 때 이벤트 처리
         setSwipeEvent()
-
-//        binding.calendarView.addDecorator(CalendarDecorator(requireContext()))
     }
 
+
+
+    // 화살표 눌렀을 때 이벤트 처리
     private fun setCalendarArrowImage() {
         with(binding) {
             calendarHeader.arrowBackImageView.setOnAvoidDuplicateClick {
@@ -89,27 +132,30 @@ class CalendarFragment : BottomSheetDialogFragment() {
         }
     }
 
+    // 스와이프 했을 때 이벤트 처리
     private fun setSwipeEvent() {
-        binding.calendarView.setOnMonthChangedListener {_,_->
-            binding.calendarHeader.yearMonthTextView.text=getCalendarYearAndMonth()
+        binding.calendarView.setOnMonthChangedListener { _, _ ->
+            binding.calendarHeader.yearMonthTextView.text = getCalendarYearAndMonth()
         }
     }
 
-    private fun getCalendarYearAndMonth() : String {
-        var calendarHeaderText=""
+    private fun getCalendarYearAndMonth(): String {
+        var calendarHeaderText = ""
         with(binding) {
-            val year=calendarView.currentDate.year.toString()
-            val month=calendarView.currentDate.month.toString()
-            calendarHeaderText="${year}년 ${month}월"
+            val year = calendarView.currentDate.year.toString()
+            val month = calendarView.currentDate.month.toString()
+            calendarHeaderText = "${year}년 ${month}월"
         }
         return calendarHeaderText
     }
 
+    // viewModel에 시작 일 갱신
     private fun setStartDate() {
-        viewModel.updateStartDate(startDate)
+        viewModel.updateStartDate(startDate!!)
     }
 
+    // viewModel에 종료 일 갱신
     private fun setEndDate() {
-        viewModel.updateEndDate(endDate)
+        viewModel.updateEndDate(endDate!!)
     }
 }

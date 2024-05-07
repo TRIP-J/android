@@ -18,6 +18,7 @@
         <item name="android:textColor">#161616</item>
     </style>
 
+    <!-- 나라 선택 화면 Button Design -->
     <style name="CountryButton">
         <item name="android:layout_width">@dimen/dp_0</item>
         <item name="android:layout_height">wrap_content</item>
@@ -27,6 +28,7 @@
         <item name="android:textColor">@color/button_text_color</item>
     </style>
 
+    <!-- Calendar 주간 글자 style-->
     <style name="calendarWeekdayStyle">
         <item name="android:textColor">@color/gray_scale_400</item>
         <item name="android:fontFamily">@font/pretendard_medium</item>
@@ -36,35 +38,41 @@
         <item name="android:layout_marginStart">33dp</item>
     </style>
 
-    <style name="calendarDateStyle">
+    <!-- Calendar 숫자 Design -->
+    <style name="calendarDateStyle" parent="android:TextAppearance.DeviceDefault.Small">
         <item name="android:textColor">@color/gray_scale_700</item>
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
+    <!-- Calendar Header -->
     <style name="calendarHeaderStyle">
         <item name="android:textColor">@color/gray_scale_700</item>
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
 
+    <!-- Bottom Navigation Style-->
     <style name="CustomBottomNav">
         <item name="itemTextAppearanceActive">@style/BottomNavigationSelectedItem</item>
         <item name="itemTextAppearanceInactive">@style/BottomNavigationNotSelectedItem</item>
     </style>
 
+    <!-- Bottom Nav 선택 되었을 때 -->
     <style name="BottomNavigationSelectedItem" parent="Widget.Material3.BottomNavigationView">
         <item name="android:textColor">@color/gray_scale_800</item>
         <item name="android:textSize">10sp</item>
         <item name="fontFamily">@font/pretendard_semibold</item>
     </style>
 
+    <!-- Bottom Nav 선택 안 되었을 때 -->
     <style name="BottomNavigationNotSelectedItem" parent="Widget.Material3.BottomNavigationView">
         <item name="android:textColor">@color/gray_scale_600</item>
         <item name="android:textSize">10sp</item>
         <item name="fontFamily">@font/pretendard_medium</item>
     </style>
 
+    <!-- 여행 정보 내용 -->
     <style name="tripContentStyle">
         <item name="android:layout_height">24dp</item>
         <item name="android:layout_width">@dimen/dp_0</item>

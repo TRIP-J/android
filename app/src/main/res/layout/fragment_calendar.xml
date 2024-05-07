@@ -12,35 +12,35 @@
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calendarHeader"
-        android:layout_marginTop="30dp"
-        app:mcv_dateTextAppearance="@style/calendarDateStyle"
-        app:mcv_selectionColor="@color/sky_blue_500"
-        app:mcv_weekDayTextAppearance="@style/calendarWeekdayStyle"
-        app:mcv_headerTextAppearance="@style/calendarHeaderStyle"
         android:layout_height="400dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendarHeader"
+        app:mcv_calendarMode="month"
+        app:mcv_selectionColor="@color/sky_blue_500"
+        app:mcv_dateTextAppearance="@style/calendarDateStyle"
+        app:mcv_headerTextAppearance="@style/calendarHeaderStyle"
         app:mcv_selectionMode="range"
         app:mcv_showOtherDates="defaults"
-        app:mcv_calendarMode="month"/>
+        app:mcv_weekDayTextAppearance="@style/calendarWeekdayStyle" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/finishButton"
         android:layout_width="match_parent"
+        android:layout_height="56dp"
         android:layout_marginStart="@dimen/dp_20"
         android:layout_marginEnd="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_8"
         android:background="@color/gray_scale_300"
         android:enabled="false"
-        app:layout_constraintTop_toBottomOf="@id/calendarView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/pretendard_bold"
         android:text="@string/calendar_button"
         android:textColor="@color/gray_scale_50"
         android:textSize="@dimen/sp_16"
-        android:fontFamily="@font/pretendard_bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:layout_height="56dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendarView" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

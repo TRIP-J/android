@@ -50,8 +50,10 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 
         val navController = navHostFragment.navController
+        // Bottom Navigation View와 연결
         binding.bottomNavigationView.setupWithNavController(navController)
 
+        // Bottom Navigation 포함된 것과 아닌 Fragment 구분을 위함
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.bottomNavigationView.isVisible =
                 !bottomNavConfiguration.topLevelDestinations.contains(
