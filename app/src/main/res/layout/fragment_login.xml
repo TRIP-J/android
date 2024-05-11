@@ -36,11 +36,11 @@
         android:id="@+id/kakaoLoginImageView"
         android:layout_width="335dp"
         android:layout_height="@dimen/dp_56"
-        android:layout_marginTop="279dp"
+        android:layout_marginBottom="88dp"
         android:src="@drawable/kakao_login"
         app:layout_constraintEnd_toEndOf="@id/logoImageView"
         app:layout_constraintStart_toStartOf="@id/logoImageView"
-        app:layout_constraintTop_toBottomOf="@id/introduceTextView" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

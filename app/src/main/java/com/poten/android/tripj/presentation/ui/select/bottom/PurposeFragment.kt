@@ -1,19 +1,17 @@
 package com.poten.android.tripj.presentation.ui.select.bottom
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentPurposeBinding
 import com.poten.android.tripj.presentation.ui.adapter.PurposeAdapter
-import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
+import com.poten.android.tripj.presentation.uistate.select.TripViewModel
 import com.poten.android.tripj.util.closeKeyboard
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 import com.poten.android.tripj.util.setOnEditorActionListener
@@ -21,7 +19,7 @@ import com.poten.android.tripj.util.setOnEditorActionListener
 class PurposeFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentPurposeBinding
-    private val viewModel: SelectViewModel by activityViewModels()
+    private val viewModel: TripViewModel by activityViewModels()
     private var itemList = emptyList<String>()
 
     override fun onCreateView(

@@ -1,7 +1,6 @@
 package com.poten.android.tripj.data.di
 
 import com.google.gson.GsonBuilder
-import com.poten.android.tripj.data.retrofit.LoginService
 import com.poten.android.tripj.util.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -23,9 +22,9 @@ object RetrofitModule {
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
-            .connectTimeout(5, TimeUnit.SECONDS)
-            .readTimeout(5, TimeUnit.SECONDS)
-            .writeTimeout(5, TimeUnit.SECONDS)
+            .connectTimeout(5,TimeUnit.SECONDS)
+            .readTimeout(5,TimeUnit.SECONDS)
+            .writeTimeout(5,TimeUnit.SECONDS)
             .addInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             })
@@ -42,7 +41,6 @@ object RetrofitModule {
         )
     }
 
-
     @Provides
     @Singleton
     fun provideRetrofit(
@@ -55,11 +53,4 @@ object RetrofitModule {
             .client(client)
             .build()
     }
-
-    @Provides
-    @Singleton
-    fun provideLoginService(retrofit: Retrofit): LoginService {
-        return retrofit.create(LoginService::class.java)
-    }
-
 }

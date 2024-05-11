@@ -1,20 +1,30 @@
 package com.poten.android.tripj.presentation.ui.login
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
+import com.kakao.sdk.user.UserApiClient
+import com.poten.android.tripj.data.model.login.OauthRequest
 import com.poten.android.tripj.databinding.FragmentLoginBinding
+import com.poten.android.tripj.presentation.uistate.login.LoginViewModel
+import com.poten.android.tripj.util.BEARER
 import com.poten.android.tripj.util.BaseFragment
+import com.poten.android.tripj.util.LOGIN_KAKAO
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+private const val TAG="LoginFragment"
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
+
+    private val viewModel: LoginViewModel by activityViewModels()
 
     private val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         if (error != null) {
@@ -55,38 +65,48 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     "알려지지 않은 에러"
                 }
             }
-//            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
         }
         // 카카오톡 로그인 성공 시
         else if (token != null) {
-            lifecycleScope.launch {
-//                viewModel.login("$BEARER${token.accessToken}", OauthRequest(userType = LOGIN_KAKAO))
-//                Toast.makeText(this@MainActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
-            }
+            val accessToken="$BEARER${token.accessToken}"
+            Log.e(TAG, accessToken)
+//            viewModel.login(accessToken, OauthRequest(LOGIN_KAKAO))
+            findNavController()
+                .navigate(LoginFragmentDirections.actionLoginFragmentToCountrySelectFragment())
         }
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        kakaoLogin()
+    }
+
+    private fun kakaoLogin() {
         with(binding) {
             kakaoLoginImageView.setOnAvoidDuplicateClick {
-                /*    if (UserApiClient.instance.isKakaoTalkLoginAvailable(this@LoginActivity)) {
-                        Log.e(TAG, "Kakao Talk")
-                        UserApiClient.instance.loginWithKakaoTalk(
-                            this@LoginActivity,
-                            callback = callback
-                        )
-                    } else {
-                        Log.e(TAG, "Kakao Account")
-                        UserApiClient.instance.loginWithKakaoAccount(
-                            this@LoginActivity,
-                            callback = callback
-                        )
-                    }*/
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToCountrySelectFragment())
-
+               /* if (UserApiClient.instance.isKakaoTalkLoginAvailable(requireContext())) {
+                    Log.e("TAG", "Kakao Talk")
+                    UserApiClient.instance.loginWithKakaoTalk(
+                        requireContext(),
+                        callback = callback
+                    )
+                } else {
+                    Log.e("TAG", "Kakao Account")
+                    UserApiClient.instance.loginWithKakaoAccount(
+                        requireContext(),
+                        callback = callback
+                    )
+                }*/
+                findNavController()
+                    .navigate(LoginFragmentDirections.actionLoginFragmentToCountrySelectFragment())
             }
         }
     }
+
+
+
+
+
 }
