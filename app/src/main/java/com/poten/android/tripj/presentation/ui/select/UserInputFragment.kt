@@ -1,6 +1,5 @@
 package com.poten.android.tripj.presentation.ui.select
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -14,7 +13,7 @@ import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentUserInputBinding
 import com.poten.android.tripj.presentation.ui.select.bottom.CalendarFragment
 import com.poten.android.tripj.presentation.ui.select.bottom.PurposeFragment
-import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
+import com.poten.android.tripj.presentation.uistate.select.TripViewModel
 import com.poten.android.tripj.util.BaseFragment
 import com.poten.android.tripj.util.closeKeyboard
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
@@ -26,7 +25,7 @@ import kotlinx.coroutines.launch
 class UserInputFragment
     : BaseFragment<FragmentUserInputBinding>(FragmentUserInputBinding::inflate) {
 
-    private val viewModel: SelectViewModel by activityViewModels()
+    private val viewModel: TripViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

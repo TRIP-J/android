@@ -1,4 +1,4 @@
-package com.poten.android.tripj.data.model
+package com.poten.android.tripj.data.model.login
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
@@ -15,8 +15,8 @@ data class OauthRequest(
 )
 
 data class OauthResponse(
-    @SerializedName("grantType")
-    val grantType: String,
+    @SerializedName("token_type")
+    val tokenType: String,
     @SerializedName("accessToken")
     val accessToken: String,
     @SerializedName("accessTokenExpireTime")

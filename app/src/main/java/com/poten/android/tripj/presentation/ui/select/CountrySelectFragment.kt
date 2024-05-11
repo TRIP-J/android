@@ -2,18 +2,17 @@ package com.poten.android.tripj.presentation.ui.select
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentCountrySelectBinding
-import com.poten.android.tripj.presentation.uistate.select.SelectViewModel
+import com.poten.android.tripj.presentation.uistate.select.TripViewModel
 import com.poten.android.tripj.util.BaseFragment
+import com.poten.android.tripj.util.Country
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -22,7 +21,7 @@ import kotlinx.coroutines.launch
 class CountrySelectFragment
     : BaseFragment<FragmentCountrySelectBinding>(FragmentCountrySelectBinding::inflate) {
 
-    private val viewModel: SelectViewModel by activityViewModels()
+    private val viewModel: TripViewModel by activityViewModels()
 
     private var buttonList = listOf<Button>()
 
@@ -102,23 +101,31 @@ class CountrySelectFragment
         viewModel.updateCountry(focusedButton?.text.toString())
     }
 
+    // 여행하려는 국가의 대륙을 Mapping 하기 위한 메서드
     private fun setContinent() {
         viewLifecycleOwner.lifecycleScope.launch {
             var continentText = ""
-            when (focusedButton?.text) {
-                "일본", "중국", "태국", "홍콩" -> {
+            val countryEnum = Country.fromCountryName(focusedButton?.text.toString())
+            when (countryEnum) {
+                Country.JAPAN, Country.CHINA, Country.THAILAND, Country.HONGKONG -> {
                     continentText = binding.asiaTextView.text.toString()
                 }
 
-                "영국", "프랑스", "이탈리아" -> {
+                Country.ENGLAND, Country.FRANCE, Country.ITALY -> {
                     continentText = binding.europeTextView.text.toString()
                 }
 
-                "미국", "캐나다", "아르헨티나" -> {
+                Country.USA, Country.CANADA, Country.ARGENTINA -> {
                     continentText = binding.americaTextView.text.toString()
                 }
+
+                else -> {}
             }
             viewModel.updateContinent(continentText)
+            // CountryCode 값을 Enum의 ordinal을 활용하여 구성
+            if (countryEnum != null) {
+                viewModel.updateCountryId(countryEnum.ordinal + 1)
+            }
         }
     }
 
@@ -166,6 +173,7 @@ class CountrySelectFragment
                 buttonList.forEach { button ->
                     if (button.text == selectedCountryName) {
                         focusedButton = button
+                        setNextButton()
                         button.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
                         button.setBackgroundColor(
                             ContextCompat.getColor(
@@ -177,9 +185,5 @@ class CountrySelectFragment
                 }
             }
         }
-    }
-
-    companion object {
-        fun newInstance() = CountrySelectFragment()
     }
 }
