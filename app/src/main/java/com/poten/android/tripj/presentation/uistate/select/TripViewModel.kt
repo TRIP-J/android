@@ -70,7 +70,6 @@ class TripViewModel @Inject constructor(
         _countryId.value = countryId
     }
 
-
     fun updateContinent(continent: String) {
         _continent.value = continent
     }
@@ -96,7 +95,7 @@ class TripViewModel @Inject constructor(
     }
 
 
-    // 지난 여행기록 보기
+    // 지난 여행 기록 불러오기
     fun loadTripHistory(userId: Int) {
         viewModelScope.launch {
             _tripHistory.value = Resource.Loading()
@@ -114,7 +113,7 @@ class TripViewModel @Inject constructor(
             }
         }
     }
-
+    // 여행 정보 1개 받아오기
     fun loadTrip(userId: Int) {
         viewModelScope.launch {
             _trip.value = Resource.Loading()
@@ -131,7 +130,7 @@ class TripViewModel @Inject constructor(
             }
         }
     }
-
+    // 여행 등록
     fun enrollTrip(userId: Int, request: TripRequest) {
         viewModelScope.launch {
             try {
@@ -146,7 +145,7 @@ class TripViewModel @Inject constructor(
             }
         }
     }
-
+    // 여행 기록 갱신
     fun updateTrip(tripId: Int, userId: Int, request: TripRequest) {
         viewModelScope.launch {
             try {
