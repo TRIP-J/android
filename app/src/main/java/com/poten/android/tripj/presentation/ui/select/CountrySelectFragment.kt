@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentCountrySelectBinding
-import com.poten.android.tripj.presentation.uistate.select.TripViewModel
+import com.poten.android.tripj.presentation.uistate.TripViewModel
 import com.poten.android.tripj.util.BaseFragment
 import com.poten.android.tripj.util.Country
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick

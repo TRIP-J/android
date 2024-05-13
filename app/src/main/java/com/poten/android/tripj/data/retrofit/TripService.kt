@@ -1,10 +1,9 @@
 package com.poten.android.tripj.data.retrofit
 
-import com.poten.android.tripj.data.model.trip.GetCountryResponse
-import com.poten.android.tripj.data.model.trip.GetTripResponse
-import com.poten.android.tripj.data.model.trip.PostTripResponse
-import com.poten.android.tripj.data.model.trip.TripHistory
-import com.poten.android.tripj.data.model.trip.TripRequest
+import com.poten.android.tripj.data.model.GetTripResponse
+import com.poten.android.tripj.data.model.PostTripResponse
+import com.poten.android.tripj.data.model.TripHistory
+import com.poten.android.tripj.data.model.TripRequest
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

@@ -11,7 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentPurposeBinding
 import com.poten.android.tripj.presentation.ui.adapter.PurposeAdapter
-import com.poten.android.tripj.presentation.uistate.select.TripViewModel
+import com.poten.android.tripj.presentation.uistate.TripViewModel
 import com.poten.android.tripj.util.closeKeyboard
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 import com.poten.android.tripj.util.setOnEditorActionListener

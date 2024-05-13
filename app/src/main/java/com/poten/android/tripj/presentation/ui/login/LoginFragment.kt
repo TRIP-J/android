@@ -5,20 +5,15 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
-import com.kakao.sdk.user.UserApiClient
-import com.poten.android.tripj.data.model.login.OauthRequest
 import com.poten.android.tripj.databinding.FragmentLoginBinding
-import com.poten.android.tripj.presentation.uistate.login.LoginViewModel
+import com.poten.android.tripj.presentation.uistate.LoginViewModel
 import com.poten.android.tripj.util.BEARER
 import com.poten.android.tripj.util.BaseFragment
-import com.poten.android.tripj.util.LOGIN_KAKAO
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 private const val TAG="LoginFragment"
 @AndroidEntryPoint

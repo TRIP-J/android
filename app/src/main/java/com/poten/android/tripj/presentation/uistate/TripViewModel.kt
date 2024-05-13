@@ -1,13 +1,11 @@
-package com.poten.android.tripj.presentation.uistate.select
+package com.poten.android.tripj.presentation.uistate
 
-import android.os.Build.VERSION_CODES.M
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.poten.android.tripj.data.model.trip.GetTripResponse
-import com.poten.android.tripj.data.model.trip.PostTripResponse
-import com.poten.android.tripj.data.model.trip.TripHistory
-import com.poten.android.tripj.data.model.trip.TripRequest
+import com.poten.android.tripj.data.model.GetTripResponse
+import com.poten.android.tripj.data.model.PostTripResponse
+import com.poten.android.tripj.data.model.TripHistory
+import com.poten.android.tripj.data.model.TripRequest
 import com.poten.android.tripj.domain.repository.TripRepository
 import com.poten.android.tripj.util.Resource
 import com.prolificinteractive.materialcalendarview.CalendarDay

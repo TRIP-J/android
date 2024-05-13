@@ -1,4 +1,4 @@
-package com.poten.android.tripj.data.model.login
+package com.poten.android.tripj.data.model
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable

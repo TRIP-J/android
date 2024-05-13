@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.poten.android.tripj.databinding.FragmentCalendarBinding
-import com.poten.android.tripj.presentation.uistate.select.TripViewModel
+import com.poten.android.tripj.presentation.uistate.TripViewModel
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import dagger.hilt.android.AndroidEntryPoint
