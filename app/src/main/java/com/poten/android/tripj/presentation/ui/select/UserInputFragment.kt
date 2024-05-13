@@ -13,7 +13,7 @@ import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.FragmentUserInputBinding
 import com.poten.android.tripj.presentation.ui.select.bottom.CalendarFragment
 import com.poten.android.tripj.presentation.ui.select.bottom.PurposeFragment
-import com.poten.android.tripj.presentation.uistate.select.TripViewModel
+import com.poten.android.tripj.presentation.uistate.TripViewModel
 import com.poten.android.tripj.util.BaseFragment
 import com.poten.android.tripj.util.closeKeyboard
 import com.poten.android.tripj.util.setOnAvoidDuplicateClick

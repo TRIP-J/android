@@ -1,4 +1,4 @@
-package com.poten.android.tripj.data.model.trip
+package com.poten.android.tripj.data.model
 
 import com.google.gson.annotations.SerializedName
 import java.time.LocalDate

@@ -10,7 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.poten.android.tripj.R
 import com.poten.android.tripj.databinding.ActivityMainBinding
-import com.poten.android.tripj.presentation.uistate.login.LoginViewModel
+import com.poten.android.tripj.presentation.uistate.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

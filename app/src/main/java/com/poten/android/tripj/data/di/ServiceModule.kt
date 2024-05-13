@@ -1,5 +1,7 @@
 package com.poten.android.tripj.data.di
 
+import com.poten.android.tripj.data.retrofit.CategoryService
+import com.poten.android.tripj.data.retrofit.CautionService
 import com.poten.android.tripj.data.retrofit.LoginService
 import com.poten.android.tripj.data.retrofit.TripService
 import dagger.Module
@@ -22,7 +24,19 @@ object ServiceModule {
 
     @Provides
     @Singleton
-    fun provideTripService(retrofit: Retrofit) : TripService {
+    fun provideTripService(retrofit: Retrofit): TripService {
         return retrofit.create(TripService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCautionService(retrofit: Retrofit): CautionService {
+        return retrofit.create(CautionService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCategoryService(retrofit: Retrofit): CategoryService {
+        return retrofit.create(CategoryService::class.java)
     }
 }
