@@ -1,5 +1,6 @@
 package com.poten.android.tripj.data.di
 
+import com.poten.android.tripj.data.retrofit.BoardService
 import com.poten.android.tripj.data.retrofit.CategoryService
 import com.poten.android.tripj.data.retrofit.CautionService
 import com.poten.android.tripj.data.retrofit.LoginService
@@ -38,5 +39,11 @@ object ServiceModule {
     @Singleton
     fun provideCategoryService(retrofit: Retrofit): CategoryService {
         return retrofit.create(CategoryService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideBoardService(retrofit: Retrofit) : BoardService {
+        return retrofit.create(BoardService::class.java)
     }
 }
