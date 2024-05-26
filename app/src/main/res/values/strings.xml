@@ -117,6 +117,9 @@
         <item>질문</item>
         <item>꿀팁</item>
     </string-array>
+    <string name="post_edit_fragment_bottom_take_picture">사진 촬영하기</string>
+    <string name="post_edit_fragment_bottom_get_album">앨범에서 선택하기</string>
+    <string name="post_edit_fragment_bottom_cancel">취소</string>
 
     <!-- TalkTip Activity -->
     <string name="talk_tip_activity_title">기본 회화 배우기</string>
