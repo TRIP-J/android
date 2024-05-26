@@ -71,6 +71,23 @@
             app:layout_constraintStart_toStartOf="@id/userProfileImageView"
             app:layout_constraintTop_toBottomOf="@id/postTitleTextView"
             tools:text="혼자서 여행왔는데 시간이 남아서 심심한데 같이 맛있는 라면 먹으러 가실 분 있으실까요?? 편하게 댓글 남겨주세요"/>
+        
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            app:layout_constraintStart_toStartOf="@id/userProfileImageView"
+            app:layout_constraintTop_toBottomOf="@id/postContentTextView"
+            android:layout_marginTop="8dp"
+            tools:text="후기"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@drawable/background_community_category_r4"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="13sp"
+            android:textColor="@color/gray_scale_700"/>
 
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -82,7 +99,7 @@
             android:src="@drawable/like_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/userProfileImageView"
-            app:layout_constraintTop_toBottomOf="@id/postContentTextView" />
+            app:layout_constraintTop_toBottomOf="@id/categoryTextView" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/likeCountTextView"
