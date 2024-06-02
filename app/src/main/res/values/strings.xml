@@ -88,6 +88,16 @@
     <string name="home_fragment_trip_tip_content_cautious">여행 가기 전\n주의사항 알고가기</string>
     <string name="home_fragment_check_list_hint">가져갈 물품을 같이 확인해요</string>
 
+    <!-- TalkTip -->
+    <string-array name="conversation_tip_list">
+        <item>기초</item>
+        <item>공항</item>
+        <item>호텔</item>
+        <item>식당</item>
+        <item>전철</item>
+        <item>관광지</item>
+    </string-array>
+
 
     <!-- Community Fragment Text-->
     <string name="community_fragment_home_title">커뮤니티</string>

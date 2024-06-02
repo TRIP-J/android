@@ -1,39 +1,40 @@
-package com.poten.android.tripj.presentation.ui.home.community.adapter
+package com.poten.android.tripj.presentation.ui.home.mytrip.tips.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.poten.android.tripj.presentation.ui.home.community.CommunityHomeFragment
 import com.poten.android.tripj.presentation.ui.home.community.home.PostFragment
+import com.poten.android.tripj.presentation.ui.home.mytrip.tips.ConversationTipFragment
 
-// ViewPager 적용을 위한 Adapter
-class ViewPagerAdapter(
-    private val fragment:CommunityHomeFragment
+class ConversationTipViewPager(
+    private val fragment: ConversationTipFragment
 ) : FragmentStateAdapter(fragment) {
-
     override fun getItemCount(): Int {
-        // 하드 코딩..
-        return 5
+        return 6
     }
 
     override fun createFragment(position: Int): Fragment {
         return when(position) {
-            0-> {
+            0->{
                 return PostFragment()
             }
 
-            1-> {
+            1->{
                 return PostFragment()
             }
 
-            2-> {
+            2->{
                 return PostFragment()
             }
 
-            3-> {
+            3->{
                 return PostFragment()
             }
 
-            else-> {
+            4->{
+                return PostFragment()
+            }
+
+            else->{
                 return PostFragment()
             }
         }
