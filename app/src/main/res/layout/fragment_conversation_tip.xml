@@ -1,45 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/white">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/backImageView"
         android:layout_width="@dimen/dp_32"
         android:layout_height="@dimen/dp_32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_12"
-        android:src="@drawable/arrow_back_32"/>
+        android:src="@drawable/arrow_back_32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/talkTipTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:textSize="20sp"
-        android:textColor="@color/gray_scale_900"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="14dp"
-        android:lineSpacingExtra="4sp"
-        android:translationY="-2.07sp"
+        android:fontFamily="@font/pretendard_semibold"
         android:gravity="top"
-        android:text="@string/talk_tip_activity_title"/>
+        android:lineSpacingExtra="4sp"
+        android:text="@string/talk_tip_activity_title"
+        android:textColor="@color/gray_scale_900"
+        android:textSize="20sp"
+        android:translationY="-2.07sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="24dp"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_32"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/sky_blue_500"
+        app:tabIndicatorFullWidth="true"
+        app:tabRippleColor="@color/white"
+        app:tabSelectedTextColor="@color/gray_scale_900"
+        app:tabTextColor="@color/gray_scale_600"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/talkTipTitleTextView" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_0"
-        app:layout_constraintTop_toBottomOf="@id/backImageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="@dimen/dp_32"/>
+        app:layout_constraintEnd_toEndOf="@id/tabLayout"
+        app:layout_constraintStart_toStartOf="@id/tabLayout"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

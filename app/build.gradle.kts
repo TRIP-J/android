@@ -99,6 +99,10 @@ dependencies {
 
     // recyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    // ViewPager2
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
+    implementation("androidx.fragment:fragment-ktx:1.7.1")
 }
 
 fun getApiKey(propertyKey: String): String {
