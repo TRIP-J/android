@@ -1,7 +1,8 @@
 package com.poten.android.tripj.data.di
 
+import android.content.res.Resources
 import com.google.gson.GsonBuilder
-import com.poten.android.tripj.util.BASE_URL
+import com.poten.android.tripj.R
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,7 +49,7 @@ object RetrofitModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(Resources.getSystem().getString(R.string.base_url))
             .addConverterFactory(gsonConverterFactory)
             .client(client)
             .build()
