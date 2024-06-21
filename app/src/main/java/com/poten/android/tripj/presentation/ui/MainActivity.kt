@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavConfiguration = AppBarConfiguration(
             setOf(
                 R.id.loginFragment,
+                R.id.userNicknameFragment,
                 R.id.countrySelectFragment,
                 R.id.userInputFragment,
                 R.id.historyListFragment,

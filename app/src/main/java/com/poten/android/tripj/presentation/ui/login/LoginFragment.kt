@@ -72,7 +72,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             Log.e(TAG, accessToken)
 //            viewModel.login(accessToken, OauthRequest(LOGIN_KAKAO))
             findNavController()
-                .navigate(LoginFragmentDirections.actionLoginFragmentToCountrySelectFragment())
+                .navigate(LoginFragmentDirections.actionLoginFragmentToUserNicknameFragment())
         }
     }
 
@@ -99,7 +99,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     )
                 }*/
                 findNavController()
-                    .navigate(LoginFragmentDirections.actionLoginFragmentToCountrySelectFragment())
+                    .navigate(LoginFragmentDirections.actionLoginFragmentToUserNicknameFragment())
             }
         }
     }

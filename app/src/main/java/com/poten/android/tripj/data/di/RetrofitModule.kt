@@ -1,6 +1,8 @@
 package com.poten.android.tripj.data.di
 
+import android.content.res.Resources
 import com.google.gson.GsonBuilder
+import com.poten.android.tripj.R
 import com.poten.android.tripj.util.BASE_URL
 import dagger.Module
 import dagger.Provides

@@ -11,8 +11,7 @@
         android:id="@+id/myTripFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.mytrip.MyTripFragment"
         android:label="MyTripFragment"
-        tools:layout="@layout/fragment_my_trip"
-        >
+        tools:layout="@layout/fragment_my_trip">
         <action
             android:id="@+id/action_myTripFragment_to_historyListFragment"
             app:destination="@id/historyListFragment" />
@@ -40,7 +39,7 @@
         android:id="@+id/historyDetailFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.mytrip.history.HistoryDetailFragment"
         android:label="HistoryDetailFragment"
-        tools:layout="@layout/fragment_history_detail"/>
+        tools:layout="@layout/fragment_history_detail" />
 
     <fragment
         android:id="@+id/countrySelectFragment"
@@ -50,6 +49,9 @@
         <action
             android:id="@+id/action_countrySelectFragment_to_userInputFragment"
             app:destination="@id/userInputFragment" />
+        <action
+            android:id="@+id/action_countrySelectFragment_to_userNicknameFragment"
+            app:destination="@id/userNicknameFragment" />
     </fragment>
     <fragment
         android:id="@+id/userInputFragment"
@@ -80,13 +82,13 @@
         android:id="@+id/postDetailFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.community.detail.PostDetailFragment"
         android:label="PostDetailFragment"
-        tools:layout="@layout/fragment_post_detail"/>
+        tools:layout="@layout/fragment_post_detail" />
 
     <fragment
         android:id="@+id/postEditFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.community.edit.PostEditFragment"
         android:label="PostEditFragment"
-        tools:layout="@layout/fragment_post_edit"/>
+        tools:layout="@layout/fragment_post_edit" />
 
     <!-- 마이페이지 -->
 
@@ -94,18 +96,18 @@
         android:id="@+id/myInfoHomeFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.myinfo.MyInfoHomeFragment"
         android:label="MyInfoHomeFragment"
-        tools:layout="@layout/fragment_my_info_home"/>
+        tools:layout="@layout/fragment_my_info_home" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.poten.android.tripj.presentation.ui.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_countrySelectFragment"
-            app:destination="@id/countrySelectFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_myTripFragment"
             app:destination="@id/myTripFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_userNicknameFragment"
+            app:destination="@id/userNicknameFragment" />
     </fragment>
     <fragment
         android:id="@+id/cautionTipFragment"
@@ -120,13 +122,22 @@
         android:id="@+id/cautionDetailFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.mytrip.tips.CautionDetailFragment"
         android:label="CautionDetailFragment"
-        tools:layout="@layout/fragment_caution_detail"/>
+        tools:layout="@layout/fragment_caution_detail" />
 
     <fragment
         android:id="@+id/conversationTipFragment"
         android:name="com.poten.android.tripj.presentation.ui.home.mytrip.tips.ConversationTipFragment"
         android:label="ConversationTipFragment"
-        tools:layout="@layout/fragment_conversation_tip"/>
+        tools:layout="@layout/fragment_conversation_tip" />
+    <fragment
+        android:id="@+id/userNicknameFragment"
+        android:name="com.poten.android.tripj.presentation.ui.select.UserNicknameFragment"
+        android:label="UserNicknameFragment"
+        tools:layout="@layout/fragment_user_nickname">
+        <action
+            android:id="@+id/action_userNicknameFragment_to_countrySelectFragment"
+            app:destination="@id/countrySelectFragment" />
+    </fragment>
 
 
 </navigation>
