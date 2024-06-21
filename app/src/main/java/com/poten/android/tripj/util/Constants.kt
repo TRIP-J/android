@@ -12,7 +12,7 @@ const val THROTTLE_TIME = 300L
 
 const val AUTHORIZATION_HEADER = "Authorization"
 const val BEARER = "Bearer "
-
+const val BASE_URL="http://223.130.136.164:8080/api/"
 const val LOGIN_KAKAO = "KAKAO"
 
 enum class Country(val countryName:String) {
